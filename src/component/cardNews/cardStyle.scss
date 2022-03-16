@@ -1,0 +1,89 @@
+.card {
+  width: 350px;
+  height: 387px;
+  background-color: #ffff;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+
+  &_btnImg {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 100%;
+    height: 50%;
+    overflow: hidden;
+    border: 1px;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    transition: transform 0.5s, filter 0s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(40%);
+    }
+  }
+  &_content {
+    width: 100%;
+    height: auto;
+
+    &-name {
+      display: flex;
+      padding: 3%;
+      text-transform: capitalize;
+      color: #0c0c0c;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 17px;
+      word-wrap: break-word;
+      line-height: 22px;
+      white-space: nowrap;
+    }
+    &__section {
+      align-items: center;
+      display: flex;
+
+      &-text {
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        color: #989898;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 18px;
+        padding-left: 2%;
+      }
+    }
+
+    &__price {
+      padding: 3%;
+      align-items: center;
+      display: flex;
+
+      &-icon {
+        padding-right: 5%;
+      }
+
+      &-text {
+        font-size: large;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        color: #fb6b26;
+      }
+    }
+
+    &__extentions {
+      height: auto;
+      display: flex;
+      align-items: center;
+      padding: 3%;
+      justify-content: space-between;
+
+      &-text {
+        line-height: 36px;
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 18px;
+        color: #989898;
+      }
+    }
+  }
+}

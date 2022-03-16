@@ -1,0 +1,54 @@
+.header {
+  width: 100%;
+  height: 136px;
+  background-color: rgba(3, 3, 3, 0.25);
+  display: flex;
+
+  &-left {
+    width: 25%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &-logo {
+      font-size: 100%;
+      color: aliceblue;
+      padding-left: 50%;
+    }
+  }
+
+  &-menu {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+
+    &-item {
+      display: flex;
+      list-style: none;
+      margin: auto;
+
+      &-btn {
+        color: white;
+        font-size: larger;
+        padding: 0px 20px;
+      }
+    }
+  }
+  &-login {
+    width: 10%;
+    display: flex;
+    align-items: center;
+
+    &-icon {
+      font-size: 20px;
+    }
+
+    &-text {
+      color: white;
+      &:hover {
+        color: #82ba4f;
+      }
+    }
+  }
+}
