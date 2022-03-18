@@ -1,41 +1,61 @@
-import { useSnackbar } from "notistack";
-import { React,useEffect,useState } from "react";
-import newsApi from "../../../api/newsApi";
-import CardNews from "../../../component/cardNews";
+import { React,useState } from "react";
+import NewsList from "../newsList";
+import FilterList from "../../../component/FilterList";
 
 function NewsLatest(){
-   const[dataNews, setDataNews] = useState({})
-   const {enqueueSnackbar} = useSnackbar(); 
-   
-   useEffect(()=>{
-      const getAllNews = async(pageNo=1, pageSize = 15)=>{
-         try {
-            const payload={
-               page: pageNo,
-               page_size: pageSize,
-            }
-            const response = await newsApi.getAllNews(payload)
-            setDataNews(response.data)
-            
-         } catch (error) {
-            enqueueSnackbar(error.message, {
-               variant: 'error',
-            })
-         }
+   const [selected, setSelected]=useState('all')
+   const options =[
+      {
+         name:"All",
+         value:"all"
+      },
+      {
+         name:"Biệt Thự",
+         value:"BIET_THU"
+      },
+      {
+         name:"Nhà Vườn",
+         value:"NHA_VUON"
+      },
+      {
+         name:"Nhà Phố",
+         value:"NHA_PHO"
+      },
+      {
+         name:"Chung Cư",
+         value:"CHUNG_CU"
+      },
+      {
+         name:"Căn Hộ",
+         value:"CAN_HO"
       }
-      getAllNews()
-   },[])
-   const newData = Array.from(dataNews);
-   console.log('datanews',newData)
+   ] 
+   
+
+   const handleOption=(value)=>{
+      setSelected(value);
+   };
    
    return(
       <div className='newsLatest'>
-         {newData.map(item=>(
-            <CardNews
-            data={item}
-         />
-         ))}
-          
+         <div className='newsLatest__title'>
+            <div >
+               <span className='newsLatest__title-nameLeft'>DỰ ÁN</span>
+               <span className='newsLatest__title-nameRight'>MỚI NHẤT</span>
+               <p className='newsLatest__title-suggest'>Dự án mới nhất đang gần bạn</p>
+            </div>
+            <div>
+               <FilterList
+                list ={options}
+                selected={selected}
+                handleClick={handleOption}
+                />
+            </div>            
+         </div>
+         
+         <NewsList 
+               selectedOrgan={selected}
+         />      
       </div>
    )
 }

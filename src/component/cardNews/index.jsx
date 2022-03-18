@@ -10,7 +10,6 @@ import IconBath from '../../assets/icons/IconBath';
 import IconSquare from '../../assets/icons/IconSquare';
 
 function CardNews(props){
-   // const{imgNews,name,city,price,badRoom,bathRoom,square}=props;
    const{data}=props
    return(
       <div className='card'>

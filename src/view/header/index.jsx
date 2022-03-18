@@ -29,45 +29,39 @@ function Header(){
          </div>
          <div className='header-login'>
             {Token ? 
-            (<div>
-               <Popover
-               content={
-                  <div>
-                     <button>Tài Khoản</button>
-                     <button onClick={ async()=>{
-                        const userLogout = await dispatch(logout())
-                        unwrapResult(userLogout)
-                        history.go(0)
-                     }} >Đăng Xuất</button>
-                     {/* <button onClick={ async()=>{
-                        try {
-                           const token = utilsToken.getAccessToken()
-                        const payload = {
-                           token:'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZ…I0M30.SQZfdNUGNtr65tTsvcbqR0uzGlCxZXEsEYqtdPQ5RsI'
-                        }
-                        const userLogout = await authApi.logout(payload)
-                        console.log('token nef',userLogout)
-                        } catch (error) {
-                           
-                        }
-                        
-                        // history.go(0)
-                     }} >Đăng Xuất</button> */}
-                  </div>
-                  
-               }
-               >
-                  <div>
-                     <Avatar
-                        size={50}
-                        src={'https://joeschmoe.io/api/v1/random'}
-                        style={{
-                           boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-                           cursor: 'pointer'
-                        }}
-                     />
-                  </div>
-               </Popover>
+            (<div className='header-login__access'>
+               <div>
+                  <p>đăng tin</p>
+               </div>
+               <div>
+                  <Popover
+                  className='header-login__access-avatar'
+                  style={{paddingLeft:10}}
+                  content={
+                     <div>
+                        <button>Tài Khoản</button>
+                        <button onClick={ async()=>{
+                           const userLogout = await dispatch(logout())
+                           unwrapResult(userLogout)
+                           history.go(0)
+                        }} >Đăng Xuất</button>
+                     </div>
+                     
+                  }
+                  >
+                     <div>
+                        <Avatar
+                           size={50}
+                           src={'https://joeschmoe.io/api/v1/random'}
+                           style={{
+                              boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
+                              cursor: 'pointer'
+                           }}
+                        />
+                     </div>
+                  </Popover>
+               </div>
+               
                </div>)
             : 
             (<NavLink to='login'>

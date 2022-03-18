@@ -3,6 +3,7 @@ import authApi from "../../api/authApi";
 import StorageKeys from "../../constants/storage-keys";
 import { common } from "../../utils/common";
 import { path } from "../../constants/path";
+import { utilsToken } from "../../utils/token";
 
 // createAsyncThunk cái này sử dụng cho login và register
 export const register = createAsyncThunk("user/register", async (payload) => {
@@ -29,10 +30,11 @@ const userSlice = createSlice({
   },
   reducers: {
     logout(state) {
+      // const getToken = utilsToken.getAccessToken()
+
       //clear local storage
       state.current = {};
       localStorage.removeItem(StorageKeys.ACCESS_TOKEN);
-      // localStorage.removeItem(StorageKeys.refresh)
       localStorage.removeItem(StorageKeys.USER);
     },
   },

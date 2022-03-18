@@ -36,7 +36,7 @@
     }
   }
   &-login {
-    width: 10%;
+    width: 15%;
     display: flex;
     align-items: center;
 
@@ -48,6 +48,13 @@
       color: white;
       &:hover {
         color: #82ba4f;
+      }
+    }
+    &__access{
+      display: flex;
+      align-items: center;
+      &-avatar{
+        padding-left: 80%;
       }
     }
   }

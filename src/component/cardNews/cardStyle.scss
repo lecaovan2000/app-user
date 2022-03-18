@@ -1,7 +1,6 @@
 .card {
   width: 350px;
   height: 387px;
-  background-color: #ffff;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 
@@ -79,6 +78,7 @@
       justify-content: space-between;
 
       &-text {
+        align-items: center;
         line-height: 36px;
         font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         font-size: 18px;
