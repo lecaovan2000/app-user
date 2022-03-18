@@ -7,8 +7,8 @@ import { utilsToken } from "../utils/token";
 
 const axiosClient = axios.create({
   baseURL: 'http://13.215.47.50:8000/api/v1/',
-  headers: {
-    "Content-Type": "application/json",
+  Headers: {
+    'Content-Type': 'application/json'
   },
   paramsSerializer: (params) => queryString.stringify(params),
 });
