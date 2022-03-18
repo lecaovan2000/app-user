@@ -36,24 +36,15 @@
        font-family: Arial,"Helvetica Neue",Helvetica,sans-serif;
     }
   }
-  &__content{
-    width: 100%;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    display: flex;
-  }
-
 }
 .newsList{
   width: 100%;
   margin: auto;
 
 }
-.newList__filterError{
-}
 .newList__content{
   width: 100%;
   display: flex !important;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content:flex-start;
 }
