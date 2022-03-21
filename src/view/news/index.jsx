@@ -1,13 +1,11 @@
 import React from 'react'
-import { Route, Switch, useRouteMatch } from 'react-router';
-import NewsLatest from './newsLatest';
-
+import NewsLatest from './component/newsLatest';
 function News(){
-   const pathUrl =useRouteMatch()
    return(
-      <Switch>
-         <Route path={pathUrl.url} exact component={NewsLatest}  />
-      </Switch>
+      <div className='news'>
+         <NewsLatest />
+      </div>
+      
    )
 }
 export default News;

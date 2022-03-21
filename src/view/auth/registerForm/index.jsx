@@ -3,7 +3,7 @@ import InputField from '../../../component/form-controls/InputField';
 import NumberField from '../../../component/form-controls/NumberField';
 import {useForm} from 'react-hook-form'
 import {yupResolver}from '@hookform/resolvers/yup'
-import { path } from '../../../constants/path';
+import { paths } from '../../../constants/paths';
 import * as yup from 'yup'
 import PasswordField from '../../../component/form-controls/passwordField';
 import {Button}from 'antd'
@@ -97,7 +97,7 @@ function RegisterForm(props){
          <div>
          <Button 
             onClick={()=>{
-               history.push(path.login)
+               history.push(paths.login)
             }}
             className='login-content-right__btn-login'>
             Sing in

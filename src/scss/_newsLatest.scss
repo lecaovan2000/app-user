@@ -39,12 +39,8 @@
 }
 .newsList{
   width: 100%;
-  // margin: auto;
 
-}
-.newList__content{
-  width: 100%;
-  display: flex !important;
-  flex-wrap: wrap;
-  justify-content:flex-start;
+  &__content{
+    display: flex;
+  }
 }

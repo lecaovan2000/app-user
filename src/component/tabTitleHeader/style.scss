@@ -1,0 +1,16 @@
+.root {
+  width: 100%;
+  height: 8vh;
+  background: linear-gradient(to right, #7dce32, #f1fae9);
+  padding: 0px 30px;
+  display: flex;
+  align-items: center;
+
+  &-text {
+    color: #ffffff;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: x-large;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+}

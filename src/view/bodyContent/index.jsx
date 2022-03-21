@@ -1,16 +1,18 @@
 import React from 'react'
-import { Route, Switch, withRouter } from 'react-router-dom'
-import { path } from '../../constants/path';
-import Banner from '../banner/index.jsx';
+import { Route, Switch, withRouter,useRouteMatch } from 'react-router'
+import { paths } from '../../constants/paths';
 import Login from '../auth/login';
 import Register from '../auth/register'
 import BodyPage from '../bodyPage';
+import DetailNewsPage from '../news/component/detailNews';
+
 function BodyContent(){
    return(
       <Switch>
-         <Route exact path={path.root} component={BodyPage} />
-         <Route path={path.register} component={Register} />
-         <Route path={path.login} component={Login} />
+         <Route exact path={paths.root} component={BodyPage} />
+         <Route path={paths.register} component={Register} />
+         <Route path={paths.login} component={Login} />
+         <Route path={paths.detail} component={DetailNewsPage}/>
       </Switch>
    )
 }

@@ -1,13 +1,13 @@
 import "./App.css";
 import { Route,  Switch } from "react-router-dom";
 import React from 'react'
-import { path } from "./constants/path";
+import { paths } from "./constants/paths";
 import BodyContent from "./view/bodyContent";
 function App() {
   return (
     <div className="App">
       <Switch>
-        <Route path={path.root} component={BodyContent} />
+        <Route path={paths.root} component={BodyContent} />
       </Switch>
     </div>
   );

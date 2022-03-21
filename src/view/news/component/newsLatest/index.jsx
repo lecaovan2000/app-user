@@ -1,6 +1,6 @@
 import { React,useState } from "react";
 import NewsList from "../newsList";
-import FilterList from "../../../component/FilterList";
+import FilterList from '../../../../component/FilterList';
 
 function NewsLatest(){
    const [selected, setSelected]=useState('all')
@@ -52,10 +52,9 @@ function NewsLatest(){
                 />
             </div>            
          </div>
-         
-         <NewsList 
-               selectedOrgan={selected}
-         />      
+            <NewsList 
+                  selectedOrgan={selected}
+            />       
       </div>
    )
 }

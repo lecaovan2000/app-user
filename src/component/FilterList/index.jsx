@@ -3,7 +3,7 @@ import './style.scss'
 FilterList.propTypes = {}
 
 function FilterList(props) {
-   const { list, selected, handleClick,loading } = props
+   const { list, selected, handleClick } = props
    const onClickOrgan = e => {
       if (!e.target.classList.contains('active_ant')) {
          handleClick(e.target.dataset.value)
@@ -12,9 +12,10 @@ function FilterList(props) {
    return (
       <>
          <div className="groupButton">
-            {list.map(item =>
+            {list.map((item,key) =>
                item.value === selected ? (
                   <button
+                     key={key}
                      className="btn-filter active_ant"
                      data-value={item.value}
                      onClick={onClickOrgan}
@@ -22,7 +23,7 @@ function FilterList(props) {
                      {item.name}
                   </button>
                ) : (
-                  <button className="btn-filter" data-value={item.value} onClick={onClickOrgan}>
+                  <button key={key} className="btn-filter" data-value={item.value} onClick={onClickOrgan}>
                      {item.name}
                   </button>
                ),

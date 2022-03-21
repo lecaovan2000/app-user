@@ -3,7 +3,8 @@ class Path{
       this.root = '/'
       this.login = '/login'
       this.register = '/login/register'
-      this.news = '/news'
+      this.detail = `/:newsUid`
+
    }
 }
-export const path = new Path();
+export const paths = new Path();

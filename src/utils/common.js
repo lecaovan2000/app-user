@@ -18,10 +18,14 @@ const removeBearerToken = () => {
 const removeCurrentUser = () => {
    localStorage.removeItem(StorageKeys.USER)
 }
+const formatPrice = (data)=>{
+   return (data).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'); 
+}
 
 
 export const common = {
    createFormDataPayload,
    removeBearerToken,
-   removeCurrentUser
+   removeCurrentUser,
+   formatPrice
 }

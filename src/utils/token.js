@@ -1,6 +1,6 @@
 import StorageKeys from '../constants/storage-keys'
 import {common} from './common'
-import { path } from '../constants/path';
+import { paths } from '../constants/paths';
 
 const getAccessToken = () => {
    return localStorage.getItem(StorageKeys.ACCESS_TOKEN);
@@ -19,13 +19,13 @@ const setDeviceToken = (token) => {
 const checkExpiredToken = async (responseData) => {
    if (responseData.errorCode === 401 && responseData.message === "Token is invalid or expired") {
       common.removeBearerToken()
-      window.location.hash = path.login;
+      window.location.hash = paths.login;
    }
 }
 const checkAccessToken =async (responseData)=>{
    if (responseData.errorCode === 401 && responseData.message === "Tài khoản không tồn tại !") {
       common.removeBearerToken()
-      window.location.hash = path.login;
+      window.location.hash = paths.login;
    }
 }
 

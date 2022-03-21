@@ -7,6 +7,7 @@ import { logout } from '../auth/userSlice';
 import Avatar from 'antd/lib/avatar/avatar';
 import { useDispatch } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
+import {paths} from '../../constants/paths'
 
 function Header(){
    const Token = utilsToken.getAccessToken()
@@ -20,7 +21,7 @@ function Header(){
          </div>
          <div className='header-menu'>
             <ul className='header-menu-item'>
-               <NavLink to = 'dashboard' className='header-menu-item-btn'>Trang chủ</NavLink>
+               <NavLink to ={paths.root} className='header-menu-item-btn'>Trang chủ</NavLink>
                <NavLink to = 'collections' className='header-menu-item-btn'>Rao tin</NavLink>
                <NavLink to = 'news' className='header-menu-item-btn'>Tin tức</NavLink>
                <NavLink to = 'introduce' className='header-menu-item-btn'>Giới thiệu</NavLink>

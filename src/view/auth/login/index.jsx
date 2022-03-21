@@ -7,7 +7,7 @@ import { useHistory } from 'react-router';
 import { login } from '../userSlice.js';
 import { useDispatch } from 'react-redux';
 import IconBack from '../../../assets/icons/IconBack.js';
-import { path } from '../../../constants/path.js';
+import { paths } from '../../../constants/paths.js';
 Login.propTypes = {
    closeDialog: PropTypes.func
 };
@@ -20,9 +20,8 @@ function Login(props){
          
          const userLogin = await dispatch(login(values))
          unwrapResult(userLogin);
-         history.push(path.root)
+         history.push(paths.root)
       } catch (error) {
-         console.log('erLogin',error)
          enqueueSnackbar(error.message,{
             variant: 'error'
          })
