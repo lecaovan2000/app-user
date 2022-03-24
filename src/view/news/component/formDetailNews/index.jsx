@@ -5,7 +5,6 @@ import icon from '../../../../assets/icons/58-call-phone-outline.gif'
 import TabTitleHeader from '../../../../component/tabTitleHeader';
 function NewsDetailForm(props){
    const {data, loading} = props
-   console.log('detail',data)
    const routes =[
       {
          path:'',

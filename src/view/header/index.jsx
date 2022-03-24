@@ -1,6 +1,6 @@
 import React from 'react';
 import {UserOutlined} from '@ant-design/icons';
-import { NavLink, useHistory } from 'react-router-dom'
+import { Link, NavLink, useHistory } from 'react-router-dom'
 import { utilsToken } from '../../utils/token';
 import { Popover } from 'antd';
 import { logout } from '../auth/userSlice';
@@ -11,9 +11,11 @@ import {paths} from '../../constants/paths'
 
 function Header(){
    const Token = utilsToken.getAccessToken()
-   console.log(Token)
    const dispatch = useDispatch()
    const history = useHistory()
+   const getProfile=async()=>{
+      await history.push(paths.userprofile)
+   }
    return(
       <div className='header'>
          <div className='header-left'>
@@ -32,15 +34,12 @@ function Header(){
             {Token ? 
             (<div className='header-login__access'>
                <div>
-                  <p>đăng tin</p>
-               </div>
-               <div>
                   <Popover
                   className='header-login__access-avatar'
                   style={{paddingLeft:10}}
                   content={
                      <div>
-                        <button>Tài Khoản</button>
+                        <button  onClick={getProfile}>Tài Khoản</button>
                         <button onClick={ async()=>{
                            const userLogout = await dispatch(logout())
                            unwrapResult(userLogout)
