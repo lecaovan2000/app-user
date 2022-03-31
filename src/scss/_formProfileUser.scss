@@ -1,0 +1,20 @@
+.formProfileUser{
+   &-left{
+      width: 30%;
+      height: 300px;
+      float: left;
+      // border: 1px solid black;
+
+      &-img{
+         width: 100%;
+         height:max-content;
+         background-size: cover;
+      }
+   }
+   &-right{
+      padding-left:2em;
+      width: 70%;
+      height: auto;
+      float: right;
+   }
+}

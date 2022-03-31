@@ -3,9 +3,9 @@ class Path{
       this.root = '/'
       this.login = '/login'
       this.register = '/login/register'
-      this.userprofile = '/userProfile'
-      this.update ='/userProfile/update'
-      this.userProject ='/userProfile/userProject'
+      this.update ='/profile/update'
+      this.userProject ='/profile/Project'
+      this.userprofile = '/profile'
       this.detail = '/:newsUid'
       
    }

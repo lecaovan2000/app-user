@@ -6,19 +6,23 @@ import CardNews from "../../../../component/cardNews";
 function NewsList(props){
    const {selectedOrgan}=props
    const[dataNews, setDataNews] = useState({})
+   const [loading, setLoading]=useState(false)
    const {enqueueSnackbar} = useSnackbar();
    const getFilterNews = async(pageNo=1, pageSize = 15)=>{
       // console.log('selectOrgan',selectedOrgan)
       try {
+         
          const payload = selectedOrgan === 'all'  ? {page:pageNo,
-            page_size:pageSize,} :{type:selectedOrgan}
+         page_size:pageSize,} :{type:selectedOrgan}
+         setLoading(true)
          const response = await newsApi.getAllNews(payload)
          console.log('dataSelect',response)
          setDataNews(response.data)
       } catch (error) {
-                  enqueueSnackbar(error.message, {
-               variant: 'error',
-            })
+         setLoading(false)
+         enqueueSnackbar(error.message, {
+            variant: 'error',
+         })
       }
    }
    
@@ -40,9 +44,12 @@ function NewsList(props){
                </div>
             ):(
                <div className='newList__content'>
+                  
                      <CardNews
                         newsData={newData}
-                     />
+                        loading={loading}
+                  />
+                  
                </div>
             )} 
       </div>

@@ -10,5 +10,9 @@ const newsApi = {
 
     return axiosClient.get(url, {params})
  },
+ deleteNews:(data)=>{
+   const url="news/delete"
+   return axiosClient.post(url,data)
+ }
 };
 export default newsApi;

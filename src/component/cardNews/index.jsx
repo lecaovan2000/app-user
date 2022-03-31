@@ -8,18 +8,20 @@ import { PhoneOutlined } from '@ant-design/icons';
 import IconBed from '../../assets/icons/iconBed';
 import IconBath from '../../assets/icons/IconBath';
 import IconSquare from '../../assets/icons/IconSquare';
+import { common } from '../../utils/common';
 import { Link } from 'react-router-dom'
 
 function CardNews(props){
-   const{newsData, handleEvent}=props
+   const{newsData, handleEvent, loading}=props
    return(
-      <div style={{display:'flex',flexWrap:'wrap', justifyContent:'flex-start'  }}>
+         <div style={{display:'flex',flexWrap:'wrap', justifyContent:'flex-start'  }}>
          {
            newsData.map && newsData.map((item,key)=>(
                <div className='card' key={key} >
                    <Link key={key} onClick={handleEvent} to={`${item.uid}`} >
                       <div className='card_btnImg'>
-                         <img src={item.img_info[0]} className='card-img' alt='...' />
+                         {!loading &&<img src={item.img_info[0]} className='card-img' alt='...' />}
+                         
                       </div> 
                    </Link>
 
@@ -34,7 +36,7 @@ function CardNews(props){
 
                   <div className='card_content__price'>
                      <span  className='card_content__price-icon' ><PhoneOutlined style={{fontSize:'20px'}} twoToneColor='#f8f8f8' /></span>
-                     <span className='card_content__price-text'>{item.price}<sup>đ</sup></span>
+                     <span className='card_content__price-text'>{common.formatPrice(item.price)}<sup>đ</sup></span>
                   </div>
 
                   <div className='card_content__extentions'>

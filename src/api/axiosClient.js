@@ -6,7 +6,7 @@ import { utilsToken } from "../utils/token";
 // Please have a look at here `https://github.com/axios/axios#request- config` for the full list of configs
 
 const axiosClient = axios.create({
-  baseURL: 'http://13.215.47.50:8000/api/v1/',
+  baseURL: 'http://18.136.193.169:8000/api/v1/',
   Headers: {
     'Content-Type': 'application/json'
   },

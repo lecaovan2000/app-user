@@ -29,7 +29,7 @@ function SideBar(props) {
             routeLink: paths.userprofile,
             label: 'Thông tin',
             icon: <IconUser />,
-            iconActive: <img src={img} />
+            iconActive: <IconUserActive/>
          },
          {
             routeLink: paths.userProject,
@@ -123,9 +123,9 @@ function SideBar(props) {
                         <Avatar
                            size={50}
                            src={'https://joeschmoe.io/api/v1/random'}
+                           shape="square"
                            style={{
                               boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
-                              cursor: 'pointer'
                            }}
                         />
                      </div>

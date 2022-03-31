@@ -24,7 +24,7 @@ function DetailNewsPage(){
          setLoading(false)
       }
       getDetailNews()
-   }, [])
+   })
    
    return(
    <div  >

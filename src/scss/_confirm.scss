@@ -1,0 +1,24 @@
+.ant-popover-message-title {
+	padding-left: 0;
+}
+.ant-popover-buttons {
+	& button {
+		width: 80px;
+		height: 30px;
+		border-radius: 8px;
+		border: 0;
+	}
+	.cancel-button {
+		background: #ffff;
+
+		&:hover {
+			border-color:#1768b2;
+			color: rgba(0, 0, 0, 0.85);
+		}
+	}
+	.confirm-button {
+		background: #1768b2;
+		color: #ffffff;
+		border-color: #1768b2;
+	}
+}

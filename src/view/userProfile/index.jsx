@@ -1,10 +1,10 @@
 import React from 'react'
-import FormProfile from './formProfile';
+import LayoutRoute from './layoutRoute'
 
 function UserProfile(){
    return(
       <div>
-         <FormProfile/>
+         <LayoutRoute/>
       </div>
    )
 }

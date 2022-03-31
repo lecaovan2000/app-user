@@ -7,7 +7,6 @@ function BodyPage(){
       <>
          <Banner/>
          <News/>
-         <UserProfile/>
       </>
    )
 }
