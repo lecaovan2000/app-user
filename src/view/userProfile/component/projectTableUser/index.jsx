@@ -1,12 +1,13 @@
 import {React, useMemo, useState} from 'react'
-import { Button, Space } from 'antd';
+import { Button, Space, Avatar, Image } from 'antd';
 import SuperTable from '../../../../component/SuperTable'
-import {EditOutlined, DeleteOutlined} from '@ant-design/icons';
+import {EditOutlined, DeleteOutlined,PictureOutlined} from '@ant-design/icons';
 import Confirm from '../../../../component/Confirm'
 import newsApi from '../../../../api/newsApi';
 import { utilsToken } from '../../../../utils/token';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom';
+import { maxHeight } from '@mui/system';
 function ProjectTable(props){
     const{loading,dataSource,pagination,onPaginate,onTableChange}=props
     const tokenUser = utilsToken.getAccessToken()
@@ -20,7 +21,22 @@ function ProjectTable(props){
             {
                 title:"Tên dự án",
                 dataIndex:'title',
-                key:'title',    
+                key:'title',
+                with:300,
+                render: (_, record) => (
+                    <>
+                       <Avatar
+                          src={
+                             record.img_info ? (
+                                <Image src={record.img_info[0]} style={{ width: 40, backgroundSize:'cover' }} />
+                             ) : null
+                          }
+                          shape="square"
+                          icon={<PictureOutlined />}
+                       />
+                       <span style={{ marginLeft: 10 }}>{record.title}</span>
+                    </>
+                 )   
                 
             },
             {
