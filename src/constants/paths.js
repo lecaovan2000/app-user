@@ -7,7 +7,6 @@ class Path{
       this.update ='/profile/update'
       this.userProject ='/profile/Project'
       this.userprofile = '/profile'
-      // this.detail = '/:newsUid'
       
    }
 }

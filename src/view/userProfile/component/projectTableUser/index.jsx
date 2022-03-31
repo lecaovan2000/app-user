@@ -12,6 +12,7 @@ function ProjectTable(props){
     const tokenUser = utilsToken.getAccessToken()
     const {enqueueSnackbar}= useSnackbar()
     const history = useHistory()
+    console.log('token nè', tokenUser)
 
     
     const columns = useMemo(()=>{
