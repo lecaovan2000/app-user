@@ -14,7 +14,7 @@ function Header(){
    const dispatch = useDispatch()
    const history = useHistory()
    const getProfile=async()=>{
-      await history.push(paths.userprofile)
+      await history.push(paths.profileUser)
    }
    return(
       <div className='header'>

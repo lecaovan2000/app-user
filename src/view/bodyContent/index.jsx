@@ -10,12 +10,13 @@ import UserProfile from '../userProfile';
 function BodyContent(){
    return(
       <Switch>
-         <Route exact path={paths.root} component={BodyPage} />
+          <Route exact path={paths.root} component={BodyPage} />
          <Route path={paths.register} component={Register} />
          <Route path={paths.userprofile} component={UserProfile} />
          <Route path={paths.login} component={Login} />
-         <Route path={paths.detail} component={DetailNewsPage}/>
+         <Route path='/:newsUid' component={DetailNewsPage}/>
+         
       </Switch>
    )
 }
-export default withRouter(BodyContent);
+export default BodyContent

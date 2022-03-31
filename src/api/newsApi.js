@@ -7,12 +7,11 @@ const newsApi = {
   getNewsDetail: (newsUid) => {
     const url = "news/detail"
     const params = { uid: newsUid}
-
     return axiosClient.get(url, {params})
  },
  deleteNews:(data)=>{
    const url="news/delete"
-   return axiosClient.post(url,data)
+   return axiosClient.post(url, data)
  }
 };
 export default newsApi;

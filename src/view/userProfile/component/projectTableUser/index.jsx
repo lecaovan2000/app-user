@@ -1,11 +1,17 @@
-import {React, useMemo} from 'react'
+import {React, useMemo, useState} from 'react'
 import { Button, Space } from 'antd';
 import SuperTable from '../../../../component/SuperTable'
 import {EditOutlined, DeleteOutlined} from '@ant-design/icons';
 import Confirm from '../../../../component/Confirm'
 import newsApi from '../../../../api/newsApi';
+import { utilsToken } from '../../../../utils/token';
+import { useSnackbar } from 'notistack'
+import { useHistory } from 'react-router-dom';
 function ProjectTable(props){
     const{loading,dataSource,pagination,onPaginate,onTableChange}=props
+    const tokenUser = utilsToken.getAccessToken()
+    const {enqueueSnackbar}= useSnackbar()
+    const history = useHistory()
 
     
     const columns = useMemo(()=>{
@@ -45,7 +51,20 @@ function ProjectTable(props){
                       />
                       <Confirm
                          className="confirm-modal"
-                         onConfirm={async () => await newsApi.deleteNews({uid:`${record.uid}`,token:"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImNhb3ZhbiIsImlhdCI6MTY0ODcxNTMxMn0.v02GrHfrG1D4_JU-sgKWvSodhMOYXorVcmi97i0sVY0"})}
+                         onConfirm={async () => {
+                             try {
+                                 const data ={
+                                    uid:`${record.uid}`,
+                                    token:tokenUser
+                                 }
+                                await newsApi.deleteNews(data)
+                                history.go(0)
+                             } catch (error) {
+                                enqueueSnackbar(error.message, {
+                                    variant: 'error'
+                                 })
+                             }
+                         }}
                          placement="bottomRight"
                          message={`Are you sure to delete ${record.title || 'project'} ?`}
                       >

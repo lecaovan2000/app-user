@@ -20,8 +20,7 @@ function CardNews(props){
                <div className='card' key={key} >
                    <Link key={key} onClick={handleEvent} to={`${item.uid}`} >
                       <div className='card_btnImg'>
-                         {!loading &&<img src={item.img_info[0]} className='card-img' alt='...' />}
-                         
+                         <img src={item.img_info[0]} className='card-img' alt='...' />
                       </div> 
                    </Link>
 
