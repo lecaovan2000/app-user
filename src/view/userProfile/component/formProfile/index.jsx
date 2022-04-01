@@ -9,7 +9,8 @@ import RadioFiled from '../../../../component/form-controls/radioFiled'
 function FormProfile(props){
    const {data}=props
    console.log('data ddaay nef',data)
-   const [radio, setRadio]= useState(data.gender)
+   const [radio, setRadio] = useState(data.gender)
+   
    const schema = yup.object().shape({
       username: yup.string()
    
@@ -29,9 +30,10 @@ function FormProfile(props){
       reset({
          username: data.username || '',
          phone:data.phone ||'',
-         value:data.gender||''
+         value:data.gender,
       })
    },[data])
+
    const options = [
       { label: 'Nam', value: 'male' },
       { label: 'Nữ', value: 'female' },
@@ -45,7 +47,7 @@ function FormProfile(props){
       <div>
          <div className='formProfileUser'>
             <div className='formProfileUser-left'>
-               <img className='formProfileUser-left-img' src={data.avatar} />
+               <img className='formProfileUser-left-img' src={data.avatar ||'https://joeschmoe.io/api/v1/random' } alt="..."/>
             </div>
             <div className='formProfileUser-right'>
             <form>

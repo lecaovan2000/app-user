@@ -55,7 +55,7 @@ function NewsDetailForm(props){
                     <span className='details__news-right-price-text'>{ common.formatPrice(data.price)} VND</span>
                </div>
                <a  href={`tel:${data.owner.phone}`} className='details__news-right-phone' >
-                   <img style={{width:32, height:32}} src={icon} />
+                   <img style={{width:32, height:32}} src={icon} alt='...' />
                    <span itemProp='telephone'  className='details__news-right-phone-text'>{data.owner.phone ||'......'}<br/><p>{'(liên hệ ngay)'}</p></span>
                </a>
             </div>

@@ -38,9 +38,9 @@ function NewsList(props){
    
    return(
       <div className='newList'>
-            {newData .length ===0 ?(
+            {newData.length ===0 ?(
                <div className='newList__filterError'>
-                  <h1>Không Tìm Thấy</h1>
+                  <h1 className='newList__filterError-text'>{'Không tìm thấy thông tin nào :('}</h1>
                </div>
             ):(
                <div className='newList__content'>

@@ -58,7 +58,7 @@ function RegisterForm(props){
          <div className='login-content-right__label'>
             <label htmlFor="password">Password</label>
          </div>
-         <NumberField
+         <InputField
             name='phone'
             form={form}
             placeholder='Phone...'

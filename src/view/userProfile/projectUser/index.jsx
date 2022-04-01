@@ -2,12 +2,18 @@ import {React, useEffect, useState} from 'react'
 import Header from '../../../component/HeaderprofieUder';
 import ProjectTable from '../component/projectTableUser';
 import newsApi from '../../../api/newsApi';
+import { utilsToken } from '../../../utils/token';
+import IconAdd from '../../../assets/icons/IconAdd';
+import HeaderRight from '../../../component/HeaderprofieUder/HeaderRightAction'
+import AddProjectModal from '../component/addProjectModal';
 // import constants from '../../../constants/'
 
 
 function Project(){
    const [dataSource,setDataSource]=useState({})
    const [loading, setLoading]=useState(false)
+   const [isOpenModal,setIsOpenModal] = useState(false)
+   const tokenUser = utilsToken.getAccessToken()
    const default_pagination ={
       page: 1,
       page_size: 15
@@ -21,9 +27,9 @@ function Project(){
             const payload={
                page: pagination.pageNo,
                page_size: pagination.pageSize,
-               status: true
+               token:tokenUser,
             }
-            const res = await newsApi.getAllNews(payload)
+            const res = await newsApi.getNewsByUser(payload)
             console.log('kkkk', res)
             setDataSource(res.data)
             setPagination({
@@ -41,11 +47,18 @@ function Project(){
   },[])
    return(
       <div>
-         <Header title="Project"/>
+         <Header title="Project" rightComponent={
+            
+            <HeaderRight icon={<IconAdd/>} onClick={()=>{setIsOpenModal(true)}}/>
+         }/>
          <ProjectTable
             dataSource={dataSource}
             loading={loading}
             pagination={pagination}
+         />
+         <AddProjectModal
+            isOpen={isOpenModal}
+            toggle={()=>{setIsOpenModal(!isOpenModal)}}
          />
       </div>
    )

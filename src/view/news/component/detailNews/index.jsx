@@ -29,7 +29,6 @@ function DetailNewsPage(){
    return(
    <div  >
       <Header />
-      <div>hihihi</div>
             <NewsDetailForm 
                data={detailNews}
                loading={loading}
