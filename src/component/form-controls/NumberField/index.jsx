@@ -32,6 +32,7 @@ function NumberField(props) {
             name={name}
             control={control}
             render={({ field, fieldState: { invalid, error } }) => {
+               console.log('lỗi fiel', invalid)
                return (
                   <div className="input-item">
                      <InputNumber
@@ -39,7 +40,7 @@ function NumberField(props) {
                         {...restProps}
                         disabled={disabled}
                      />
-                     <div className={`error-message ${!invalid ? 'hide' : ''}`}>{error?.message || ' '}</div>
+                    <div>{error?.message || ''}</div>
                   </div>
                )
             }}

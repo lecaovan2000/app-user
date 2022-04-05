@@ -1,4 +1,4 @@
-import {React} from 'react'
+import {React } from 'react'
 import{Form, Input} from 'antd'
 import {Controller} from 'react-hook-form'
 import PropTypes from 'prop-types'
@@ -15,6 +15,8 @@ InputField.prototype={
 function InputField(props){
    const {form, label, labelCol,width, name, rules, disabled, className,size,maxLength,style, ...restProps}= props;
    const { control } = form;
+   
+   
    return(
       <Form.Item
          label={label}
@@ -34,9 +36,6 @@ function InputField(props){
                         {...field}
                         {...restProps}
                         disabled={disabled}
-                        size={size}
-                        maxLength={maxLength}
-                        style={style}
                      />
                      <div>{error?.message || ''}</div>
                   </div>

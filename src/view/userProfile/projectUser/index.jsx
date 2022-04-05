@@ -50,7 +50,6 @@ function Project(){
          const payload={
             title:data.title,
             type:data.type,
-            phone:data.phone,
             city:data.city,
             district:data.district,
             street:data.street,
@@ -59,7 +58,7 @@ function Project(){
             bedroom_no:data.bedroom_no,
             bathroom_no:data.bathroom_no,
             token:tokenUser,
-            imgs: data.imgs.fileList[0].originFileObj
+            imgs:data.imgs[0].originFileObj
          }
          
          try {

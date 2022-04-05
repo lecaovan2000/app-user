@@ -1,11 +1,13 @@
-import {React} from 'react'
+import {React,useEffect, useState} from 'react'
 import{Form, message, Upload, Button} from 'antd'
 import {Controller} from 'react-hook-form'
 import { UploadOutlined } from '@ant-design/icons';
 
 function FileUploadField(props){
-   const {form, label, labelCol,width, name, rules, disabled, className,size,maxLength,style, ...restProps}= props;
-   const { control } = form;
+   const {form, label, labelCol,width, name, rules, disabled, className,size,maxLength,style,maxCount}= props;
+   const { control,getValues, setValue } = form;
+   const [fileList, setFileList] = useState([])
+   // const mediaList = getValues(name)
 
   const onChange=(info)=> {
       if (info.file.status !== 'uploading') {
@@ -17,6 +19,12 @@ function FileUploadField(props){
         message.error(`${info.file.name} file upload failed.`);
       }
    }
+
+   const handleChange = ({ fileList }) => {
+      setFileList(fileList)
+      setValue(name, fileList)
+   }
+   console.log('medalist',fileList)
    return(
       <Form.Item
          label={label}
@@ -29,15 +37,25 @@ function FileUploadField(props){
          <Controller 
             name={name}
             control={control}
-            render={({field,fieldState:{error}})=>{
+            render={({field:{ onChange, name },fieldState:{error}})=>{
                return(
                   <div className='input-item'>
                      <Upload
                         name={name}
-                        {...field}
-                        {...restProps}
+                        multiple
+                        beforeUpload={() => false}
+                        maxCount={maxCount}
+                        listType="picture"
+                        onChange={e => {
+                           const { fileList } = e
+                           onChange(fileList)
+                           handleChange(e)
+                        }}
+                        defaultFileList={[...fileList]}
+                        accept="image/*"
+                        
                      >
-                        <Button icon={<UploadOutlined />}>Click to Upload</Button>
+                        <Button icon={<UploadOutlined />}>Upload</Button>
                      </Upload>
                      <div>{error?.message || ''}</div>
                   </div>

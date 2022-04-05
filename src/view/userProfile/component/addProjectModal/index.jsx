@@ -13,11 +13,9 @@ import { utilsToken } from '../../../../utils/token'
 function AddProjectModal(props){
     const {isOpen,toggle,onSubmit,handleChange} = props
     const tokenUser = utilsToken.getAccessToken()
-    console.log("token foem",tokenUser )
     const schema = yup.object().shape({
         title:yup.string().required('Tên dự án không được để trống'),
         type:yup.string().required('Chọn kiểu dự án'),
-        phone:yup.number().required('Số điện thoại không được để trống'),
         city:yup.string(),
         district:yup.string(),
         price:yup.number(),
@@ -29,7 +27,6 @@ function AddProjectModal(props){
         defaultValues: {
             title:'',
             type:'',
-            phone:'',
             city:'',
             district:'',
             street:'',
@@ -129,18 +126,6 @@ function AddProjectModal(props){
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <NumberField
-                            size="large"
-                            name="phone"
-                            form={form}
-                            placeholder="Số điện thoại"
-                            label="Số điện thoại"
-                            labelCol={{ span: 24 }}
-                        />
-                    </Col>
-                </Row>
                 <Row  gutter={[24,0]}>
                     <Col span={6}>
                         <InputField
@@ -223,6 +208,8 @@ function AddProjectModal(props){
                             <FileUploadField
                                  name="imgs"
                                  form={form}
+                                 maxItem={8}
+                                 labelCol={{ span: 24 }}
                                  label="Hình ảnh"  
                             />
                     </Col>
