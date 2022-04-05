@@ -6,14 +6,17 @@ import { utilsToken } from '../../../utils/token';
 import IconAdd from '../../../assets/icons/IconAdd';
 import HeaderRight from '../../../component/HeaderprofieUder/HeaderRightAction'
 import AddProjectModal from '../component/addProjectModal';
+import { useSnackbar } from 'notistack'
 // import constants from '../../../constants/'
 
 
 function Project(){
+   const { enqueueSnackbar } = useSnackbar()
    const [dataSource,setDataSource]=useState({})
    const [loading, setLoading]=useState(false)
    const [isOpenModal,setIsOpenModal] = useState(false)
    const tokenUser = utilsToken.getAccessToken()
+   
    const default_pagination ={
       page: 1,
       page_size: 15
@@ -41,6 +44,36 @@ function Project(){
          }
          setLoading(false)
       }
+
+      const handleAddProject = async (data)=>{
+         console.log('hù', data)
+         const payload={
+            title:data.title,
+            type:data.type,
+            phone:data.phone,
+            city:data.city,
+            district:data.district,
+            street:data.street,
+            price:data.price,
+            acreage:data.acreage,
+            bedroom_no:data.bedroom_no,
+            bathroom_no:data.bathroom_no,
+            token:tokenUser,
+            imgs: data.imgs.fileList[0].originFileObj
+         }
+         
+         try {
+            const response = await newsApi.addProject(payload)
+            setIsOpenModal(false)
+            enqueueSnackbar(response.message, {
+               variant: 'success'
+            })
+         } catch (error) {
+            enqueueSnackbar(error.message, {
+               variant: 'error'
+            })
+         }
+      }
      
   useEffect(()=>{
    getNewProject()
@@ -59,6 +92,7 @@ function Project(){
          <AddProjectModal
             isOpen={isOpenModal}
             toggle={()=>{setIsOpenModal(!isOpenModal)}}
+            onSubmit={handleAddProject}
          />
       </div>
    )

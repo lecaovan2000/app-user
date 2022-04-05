@@ -21,11 +21,20 @@ const removeCurrentUser = () => {
 const formatPrice = (data)=>{
    return (data).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,'); 
 }
+function getBase64(file) {
+   return new Promise((resolve, reject) => {
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = () => resolve(reader.result)
+      reader.onerror = error => reject(error)
+   })
+}
 
 
 export const common = {
    createFormDataPayload,
    removeBearerToken,
    removeCurrentUser,
-   formatPrice
+   formatPrice,
+   getBase64
 }

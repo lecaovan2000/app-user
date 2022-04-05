@@ -42,7 +42,11 @@ function ProjectTable(props){
             {
                 title:"Trạng thái",
                 dataIndex:'status',
-                key:'status', 
+                key:'status',
+                render:(_, record)=>{
+                  return record.status ? 
+                  (<div>đang bán</div>):(<div>đã bán</div>)
+                } 
             },
             {
                 title: 'Loại',
