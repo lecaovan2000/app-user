@@ -3,24 +3,18 @@ import FormModal from '../../../../component/CustomModal/FormModal'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useForm } from 'react-hook-form'
-import { Col, Row, Modal } from 'antd'
+import { Col, Row } from 'antd'
 import InputField from '../../../../component/form-controls/InputField'
 import RadioFiled from '../../../../component/form-controls/radioFiled'
 import FileUploadField from '../../../../component/form-controls/FileUploadField'
 import { utilsToken } from '../../../../utils/token'
-import SelectField from '../../../../component/form-controls/SelectField'
 
 function FormEditProfile(props){
-    const {isOpen,toggle,onSave,dataProfile,handleChange} = props
+    const {isOpen,toggle,onSave,dataProfile} = props
     const tokenUser = utilsToken.getAccessToken()
-    const [radio,setRadio] = useState()
     const schema = yup.object().shape({
        
      })
-     const onChangeRadio = (e)=>{
-      setRadio(e.target.value)
-     }
-     console.log('value: ',radio)
      const form = useForm({
       fullname:'',
       phone:'',
@@ -109,16 +103,13 @@ function FormEditProfile(props){
                            name="gender"
                            form={form}
                            label="Gới tính:"
-                           onChange={radio}
                            options={
                               [
                                  { label: "Nam", value:"Male" },
                                  { label: "Nữ", value: "Female" },
                                  { label: "Khác", value: "other" },
-                               ]
+                              ]
                            }
-                           defaultValue={radio}
-                           
                         />
                      </Col>
                   </Row>
@@ -134,8 +125,7 @@ function FormEditProfile(props){
                        />
                      </Col>
                   </Row>
-               </Col>
-                     
+               </Col>         
             </Row>
          </form>
         </FormModal>

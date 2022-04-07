@@ -1,5 +1,5 @@
 import { Avatar, Badge, Popover, Tooltip } from 'antd'
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { NavLink, useLocation, withRouter,useHistory } from 'react-router-dom'
 import IconMenuCollapse from '../../assets/icons/IconMenuCollapse'
 import IconMenuExpand from '../../assets/icons/IconMenuExpand'
@@ -10,6 +10,7 @@ import {logout} from'../../view/auth/userSlice'
 import { unwrapResult } from '@reduxjs/toolkit';
 import { useDispatch } from 'react-redux';
 import { utilsToken } from '../../utils/token'
+import userApi from '../../api/userApi'
 
 
 SideBar.propTypes = {}
@@ -21,6 +22,21 @@ function SideBar(props) {
    const dispatch = useDispatch()
    const inforUser = utilsToken.getAccessUser()
    const newInfoUser = JSON.parse(inforUser)
+   const [infoUser, setInfoUser]=useState({})
+   const tokenUser = utilsToken.getAccessToken()
+   console.log(tokenUser)
+   const getInfoUser = async()=>{
+      try {
+         const response = await userApi.getProfileUserName(newInfoUser.uid)
+         console.log("sibar user", response)
+         setInfoUser(response.data)
+      } catch (error) {
+         console.log(error)
+      }
+   }
+   useEffect(()=>{
+      getInfoUser()
+   },[])
 
    const comparePath = (pathname, routeLink) => {
       return pathname.split('/userProfile')[0] === routeLink.substring(0)
@@ -124,7 +140,7 @@ function SideBar(props) {
                      <div>
                         <Avatar
                            size={50}
-                           src={newInfoUser.avatar||'https://joeschmoe.io/api/v1/random'}
+                           src={infoUser.avatar||'https://joeschmoe.io/api/v1/random'}
                            shape="square"
                            style={{
                               boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',

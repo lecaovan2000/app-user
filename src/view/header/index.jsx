@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import {UserOutlined} from '@ant-design/icons';
 import { Link, NavLink, useHistory } from 'react-router-dom'
 import { utilsToken } from '../../utils/token';
@@ -8,16 +8,29 @@ import Avatar from 'antd/lib/avatar/avatar';
 import { useDispatch } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
 import {paths} from '../../constants/paths'
+import userApi from '../../api/userApi';
 
 function Header(){
    const Token = utilsToken.getAccessToken()
    const InfoUser = utilsToken.getAccessUser()
+   const [profileUser, setProfileUser]=useState({})
    const NewInfoUser = JSON.parse(InfoUser)
    const dispatch = useDispatch()
    const history = useHistory()
    const getProfile=async()=>{
       await history.push(paths.profileUser)
    }
+   const getProfileUser = async()=>{
+      try {
+         const response = await userApi.getProfileUserName(NewInfoUser.uid)
+         setProfileUser(response.data)
+      } catch (error) {
+         console.log(error)
+      }
+   }
+   useEffect(()=>{
+      getProfileUser()
+   })
    return(
       <div className='header'>
          <div className='header-left'>
@@ -54,7 +67,7 @@ function Header(){
                      <div>
                         <Avatar
                            size={50}
-                           src={NewInfoUser.avatar||'https://joeschmoe.io/api/v1/random'}
+                           src={profileUser.avatar||'https://joeschmoe.io/api/v1/random'}
                            style={{
                               boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
                               cursor: 'pointer'

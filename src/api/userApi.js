@@ -7,6 +7,10 @@ const userApi={
 
     return axiosClient.get(url, {params})
    },
+   getProfileToken:(payload)=>{
+      const url='user/profile'
+    return axiosClient.get(url,payload)
+   },
    updateProfileUser: payload => {
       const url = 'user/update'
       return axiosClient.post(url, common.createFormDataPayload(payload))
