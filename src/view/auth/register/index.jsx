@@ -25,7 +25,6 @@ function Register(props){
          enqueueSnackbar(error.message,{
             variant: "error" 
          })
-         console.log(error)
       }
   }
    

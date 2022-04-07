@@ -8,6 +8,7 @@ import InputField from '../../../../component/form-controls/InputField'
 import RadioFiled from '../../../../component/form-controls/radioFiled'
 import FileUploadField from '../../../../component/form-controls/FileUploadField'
 import { utilsToken } from '../../../../utils/token'
+import SelectField from '../../../../component/form-controls/SelectField'
 
 function FormEditProfile(props){
     const {isOpen,toggle,onSave,dataProfile,handleChange} = props
@@ -23,7 +24,7 @@ function FormEditProfile(props){
      const form = useForm({
       fullname:'',
       phone:'',
-      gender:radio,
+      gender:'',
       avatar:[],
       token:tokenUser,
         resolver: yupResolver(schema),
@@ -108,7 +109,7 @@ function FormEditProfile(props){
                            name="gender"
                            form={form}
                            label="Gới tính:"
-                           onChange={onChangeRadio}
+                           onChange={radio}
                            options={
                               [
                                  { label: "Nam", value:"Male" },
@@ -116,7 +117,7 @@ function FormEditProfile(props){
                                  { label: "Khác", value: "other" },
                                ]
                            }
-                           defaultValue={dataProfile.gender}
+                           defaultValue={radio}
                            
                         />
                      </Col>

@@ -15,7 +15,6 @@ function NewsList(props){
          page_size:pageSize,} :{type:selectedOrgan}
          setLoading(true)
          const response = await newsApi.getAllNews(payload)
-         console.log('dataSelect',response)
          setDataNews(response.data)
       } catch (error) {
          setLoading(false)

@@ -20,14 +20,13 @@ import PropTypes from 'prop-types'
 
 }
 function RadioFiled(props){
-   const {form, label, labelCol,width, name, rules, disabled, className,buttonStyle,size,maxLength,options,onChange,defaultValue,optionType,style}= props;
+   const {form, label, labelCol, name, disabled, className,options,onChange,defaultValue, ...restProps}= props;
    const { control } = form;
    return(
       <Form.Item
          label={label}
          labelCol={labelCol}
          name={name}
-         rules={rules}
          className={className || ''}
          colon={false}
       >
@@ -37,15 +36,12 @@ function RadioFiled(props){
             render={({field,fieldState:{invalid,error}})=>{
                return(
                   <div className='input-item'>
-                     <Radio.Group 
-                        name={name}
-                        disabled={disabled}
-                        size={size}
+                     <Radio.Group
+                        {...field}
+                        defaultValue={field.value}
                         options={options}
-                        onChange={onChange}
-                        value={defaultValue}
-                        optionType={optionType}
-                        buttonStyle={buttonStyle}
+                        disabled={disabled}
+                        {...restProps}
                      />
                      <div>{error?.message || ''}</div>
                   </div>

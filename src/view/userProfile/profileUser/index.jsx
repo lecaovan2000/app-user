@@ -23,7 +23,6 @@ function ProfileUser(){
       setLoading(true)
       try {
          const re = await userApi.getProfileUserName(getUidUser.uid)
-         console.log('owr day',re)
          setProfile(re.data)
       } catch (error) {
          console.log(error)
@@ -34,7 +33,6 @@ function ProfileUser(){
       getProfileUser()
    },[])
    const handleUpdate = async (data)=>{
-      console.log('data for edit profile: ', data)
       const payload ={
          fullname:data.fullname,
          phone:data.phone,
@@ -47,15 +45,14 @@ function ProfileUser(){
          enqueueSnackbar(response.message, {
             variant: 'success'
          })
-         // setIsOpenModal(false)
-         // history.go(0)
+         setIsOpenModal(false)
+         history.go(0)
       } catch (error) {
          enqueueSnackbar(error.message, {
             variant: 'error'
          })
       }
     }
-   console.log('data',profile)
    return(
       <div>
          <Header title='Profile' rightComponent={

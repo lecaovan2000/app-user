@@ -7,15 +7,12 @@ import newsApi from '../../../../api/newsApi';
 import { utilsToken } from '../../../../utils/token';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom';
-import { maxHeight } from '@mui/system';
+import { common } from '../../../../utils/common';
 function ProjectTable(props){
     const{loading,dataSource,pagination,onPaginate,onTableChange}=props
     const tokenUser = utilsToken.getAccessToken()
     const {enqueueSnackbar}= useSnackbar()
-    const history = useHistory()
-    console.log('token nè', tokenUser)
-
-    
+    const history = useHistory() 
     const columns = useMemo(()=>{
         return[
             {
@@ -40,6 +37,19 @@ function ProjectTable(props){
                 
             },
             {
+               title: 'Thông tin',
+               dataIndex: 'note',
+               key: 'note',
+           },
+            {
+               title:"Giá bán",
+               key:"price",
+               dataIndex:"price",
+               render:(_, record)=>{
+                return <div>{common.formatPrice(record.price)}VND</div>
+               }
+            },
+            {
                 title:"Trạng thái",
                 dataIndex:'status',
                 key:'status',
@@ -55,6 +65,16 @@ function ProjectTable(props){
                 width: 100,
                 align: 'center',
             },
+            {
+               title: 'Diện tích',
+               dataIndex: 'acreage',
+               key: 'acreage',
+               width: 100,
+               align: 'center',
+               render:(_,record)=>{
+                  return <div>{record.acreage}m2</div>
+               }
+           },
             {
                 title: 'Hoạt  động',
                 dataIndex: 'activity',

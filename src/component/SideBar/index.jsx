@@ -8,8 +8,8 @@ import IconUser from '../../assets/icons/iconUser'
 import IconUserActive from '../../assets/icons/iconUserActive' ;
 import {logout} from'../../view/auth/userSlice'
 import { unwrapResult } from '@reduxjs/toolkit';
-import img from '../../images/user.png'
 import { useDispatch } from 'react-redux';
+import { utilsToken } from '../../utils/token'
 
 
 SideBar.propTypes = {}
@@ -19,6 +19,8 @@ function SideBar(props) {
    const location = useLocation()
    const history = useHistory()
    const dispatch = useDispatch()
+   const inforUser = utilsToken.getAccessUser()
+   const newInfoUser = JSON.parse(inforUser)
 
    const comparePath = (pathname, routeLink) => {
       return pathname.split('/userProfile')[0] === routeLink.substring(0)
@@ -122,7 +124,7 @@ function SideBar(props) {
                      <div>
                         <Avatar
                            size={50}
-                           src={'https://joeschmoe.io/api/v1/random'}
+                           src={newInfoUser.avatar||'https://joeschmoe.io/api/v1/random'}
                            shape="square"
                            style={{
                               boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',

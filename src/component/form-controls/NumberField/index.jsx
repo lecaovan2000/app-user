@@ -32,7 +32,6 @@ function NumberField(props) {
             name={name}
             control={control}
             render={({ field, fieldState: { invalid, error } }) => {
-               console.log('lỗi fiel', invalid)
                return (
                   <div className="input-item">
                      <InputNumber

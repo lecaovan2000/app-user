@@ -33,7 +33,6 @@ function Project(){
                token:tokenUser,
             }
             const res = await newsApi.getNewsByUser(payload)
-            console.log('kkkk', res)
             setDataSource(res.data)
             setPagination({
                pageNo: res.total_page,
@@ -46,7 +45,6 @@ function Project(){
       }
 
       const handleAddProject = async (data)=>{
-         console.log('hù', data)
          const payload={
             title:data.title,
             type:data.type,

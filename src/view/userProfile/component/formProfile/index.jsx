@@ -8,8 +8,6 @@ import RadioFiled from '../../../../component/form-controls/radioFiled'
 
 function FormProfile(props){
    const {data}=props
-   console.log('data ddaay nef',data)
-   
    const schema = yup.object().shape({
    })
    const form = useForm({
@@ -24,7 +22,8 @@ function FormProfile(props){
       reset({
          fullname: data.fullname || '',
          phone:data.phone ||'',
-         defaultValue:data.gender,
+         gender:data.gender||''
+
       })
    },[data])
 
@@ -61,7 +60,7 @@ function FormProfile(props){
                                  { label: 'Khác', value: 'other' },
                                ]
                            }
-                           defaultValue={data.gender}
+                           // value={data.gender}
                         />
                      </Col>
                   </Row>
