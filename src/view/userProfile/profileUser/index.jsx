@@ -34,7 +34,7 @@ function ProfileUser(){
       getProfileUser()
    },[])
    const handleUpdate = async (data)=>{
-      console.log('hifhifhi', data)
+      console.log('data for edit profile: ', data)
       const payload ={
          fullname:data.fullname,
          phone:data.phone,
@@ -47,8 +47,8 @@ function ProfileUser(){
          enqueueSnackbar(response.message, {
             variant: 'success'
          })
-         setIsOpenModal(false)
-         history.go(0)
+         // setIsOpenModal(false)
+         // history.go(0)
       } catch (error) {
          enqueueSnackbar(error.message, {
             variant: 'error'

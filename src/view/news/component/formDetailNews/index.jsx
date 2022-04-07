@@ -3,18 +3,21 @@ import {PageHeader} from 'antd'
 import { common } from '../../../../utils/common';
 import icon from '../../../../assets/icons/58-call-phone-outline.gif'
 import TabTitleHeader from '../../../../component/tabTitleHeader';
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 function NewsDetailForm(props){
    const {data, loading} = props
-   const routes =[
-      {
-         path:'',
-         breadcrumbName:'Home'
-      },
-      {
-         path:'',
-         breadcrumbName:data.uid
-      }
-   ];
+   console.log('datadetail',data)
+   const history=useHistory()
+   // const routes =[
+   //    {
+   //       path:'',
+   //       breadcrumbName:'Home'
+   //    },
+   //    {
+   //       path:'',
+   //       breadcrumbName:data.title
+   //    }
+   // ];
    
    return(
    <>
@@ -24,7 +27,9 @@ function NewsDetailForm(props){
          <div>
             <PageHeader
                className='details__pageHeader'
-               breadcrumb={{ routes  }}
+               onBack={() => history.go(-1)}
+               title='Home'
+               subTitle={data.title}
             />
          </div>
          <div className='details__news'>

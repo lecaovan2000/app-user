@@ -11,6 +11,8 @@ import {paths} from '../../constants/paths'
 
 function Header(){
    const Token = utilsToken.getAccessToken()
+   const InfoUser = utilsToken.getAccessUser()
+   const NewInfoUser = JSON.parse(InfoUser)
    const dispatch = useDispatch()
    const history = useHistory()
    const getProfile=async()=>{
@@ -52,7 +54,7 @@ function Header(){
                      <div>
                         <Avatar
                            size={50}
-                           src={'https://joeschmoe.io/api/v1/random'}
+                           src={NewInfoUser.avatar||'https://joeschmoe.io/api/v1/random'}
                            style={{
                               boxShadow: 'rgba(0, 0, 0, 0.24) 0px 3px 8px',
                               cursor: 'pointer'

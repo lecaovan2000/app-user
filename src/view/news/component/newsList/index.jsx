@@ -9,7 +9,6 @@ function NewsList(props){
    const [loading, setLoading]=useState(false)
    const {enqueueSnackbar} = useSnackbar();
    const getFilterNews = async(pageNo=1, pageSize = 15)=>{
-      // console.log('selectOrgan',selectedOrgan)
       try {
          
          const payload = selectedOrgan === 'all'  ? {page:pageNo,
@@ -32,10 +31,7 @@ function NewsList(props){
       }
    },[selectedOrgan])
 
-   
-   const newData = Array.from(dataNews);
-   console.log('datanew',dataNews)
-   
+   const newData = Array.from(dataNews);  
    return(
       <div className='newList'>
             {newData.length ===0 ?(

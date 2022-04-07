@@ -12,15 +12,18 @@ import { utilsToken } from '../../../../utils/token'
 function FormEditProfile(props){
     const {isOpen,toggle,onSave,dataProfile,handleChange} = props
     const tokenUser = utilsToken.getAccessToken()
-    const [radio, setRadio] = useState(dataProfile.gender)
-    console.log('trowi', dataProfile)
+    const [radio,setRadio] = useState()
     const schema = yup.object().shape({
        
      })
+     const onChangeRadio = (e)=>{
+      setRadio(e.target.value)
+     }
+     console.log('value: ',radio)
      const form = useForm({
       fullname:'',
       phone:'',
-      gender:'',
+      gender:radio,
       avatar:[],
       token:tokenUser,
         resolver: yupResolver(schema),
@@ -33,11 +36,12 @@ function FormEditProfile(props){
       reset({
          fullname: dataProfile.fullname || '',
          phone:dataProfile.phone ||'',
-         gender:dataProfile.gender,
-         avatar:dataProfile.avatar,
+         gender:dataProfile.gender||'',
+         avatar:dataProfile.avatar||'',
          token:tokenUser,
       })
    },[dataProfile])
+   
 
    const handleSubmit = async data => {
       console.log(isSubmitting)
@@ -45,17 +49,7 @@ function FormEditProfile(props){
          await onSave(data)
       }
    }
-     const options = [
-      { label: 'Nam', value: 'male' },
-      { label: 'Nữ', value: 'female' },
-      { label: 'Khác', value: 'other' },
-    ];
-   const onChange = e => {
-      console.log('radio checked', e.target.value);
-      setRadio(e.target.value);
-    };
-    
-    
+
     return(
         <FormModal
             title="Edit profile"
@@ -74,7 +68,7 @@ function FormEditProfile(props){
                         <FileUploadField
                             name="avatar"
                             form={form}
-                            maxItem={8}
+                            maxItem={1}
                             labelCol={{ span: 24 }}
                             label="Hình ảnh"
                         />
@@ -114,9 +108,16 @@ function FormEditProfile(props){
                            name="gender"
                            form={form}
                            label="Gới tính:"
-                           onChange={onChange}
-                           options={options}
-                           value={radio}
+                           onChange={onChangeRadio}
+                           options={
+                              [
+                                 { label: "Nam", value:"Male" },
+                                 { label: "Nữ", value: "Female" },
+                                 { label: "Khác", value: "other" },
+                               ]
+                           }
+                           defaultValue={dataProfile.gender}
+                           
                         />
                      </Col>
                   </Row>
