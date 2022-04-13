@@ -44,6 +44,7 @@ function FormProfile(props){
                            placeholder="Họ và tên"
                            label="Họ và tên:"
                            labelCol={{ span: 24 }}
+                           // disabled={true}
                         />
                      </Col>
                   </Row>
@@ -60,6 +61,7 @@ function FormProfile(props){
                                  { label: 'Khác', value: 'other' },
                                ]
                            }
+                           // disabled={true}
                            // value={data.gender}
                         />
                      </Col>
@@ -73,6 +75,7 @@ function FormProfile(props){
                             placeholder="Số điện thoại"
                             label="Số điện thoại:"
                             labelCol={{ span: 24 }}
+                           //  disabled={true}
                        />
                      </Col>
                   </Row>

@@ -7,6 +7,7 @@ import IconAdd from '../../../assets/icons/IconAdd';
 import HeaderRight from '../../../component/HeaderprofieUder/HeaderRightAction'
 import AddProjectModal from '../component/addProjectModal';
 import { useSnackbar } from 'notistack'
+import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 // import constants from '../../../constants/'
 
 
@@ -16,10 +17,13 @@ function Project(){
    const [loading, setLoading]=useState(false)
    const [isOpenModal,setIsOpenModal] = useState(false)
    const tokenUser = utilsToken.getAccessToken()
+   const [filters, setFilters] = useState({})
+   const [sorter, setSorter]=useState({})
+   const history = useHistory()
    
    const default_pagination ={
-      page: 1,
-      page_size: 15
+      pageNo: 1,
+      page_size:10
    }
    const [pagination, setPagination] = useState(default_pagination)
   
@@ -29,19 +33,71 @@ function Project(){
             
             const payload={
                page: pagination.pageNo,
-               page_size: pagination.pageSize,
+               // page_size: pagination.pageSize,
                token:tokenUser,
             }
             const res = await newsApi.getNewsByUser(payload)
+            console.log('page size',res)
             setDataSource(res.data)
             setPagination({
-               pageNo: res.total_page,
-               pageSize: res.total,
+               // pageNo: res.total_page,
+               pageSize:res.total
             })
          } catch (error) {
             console.log(error)
          }
          setLoading(false)
+      }
+      const handleChangePagination = (pageNo, pageSize) => {
+         getNewProject({ pageNo, pageSize })
+      }
+      const handleSearch = ( confirm, dataIndex) => {
+         confirm()
+      }
+      const handleReset = (clearFilters, dataIndex) => {
+         clearFilters()
+   
+         const newFilters = { ...filters }
+         delete newFilters[dataIndex]
+         setFilters(newFilters)
+      }
+      const handleChangeFilters = newFilters => {
+         setPagination({
+            ...pagination,
+            pageNo: 1
+         })
+         const filters = Object.fromEntries(Object.entries(newFilters).filter(([_, v]) => v != null))
+         const editedFilters = Object.fromEntries(Object.entries(filters).map(([k, v]) => [k, v[0]]))
+         setFilters({
+            ...filters,
+            ...editedFilters
+         })
+      }
+      const handleChangeSorter = newSorter => {
+         if (!Array.isArray(newSorter)) {
+            newSorter.order
+               ? setSorter({
+                    [newSorter.field]: newSorter.order === 'ascend' ? 'ASC' : 'DESC'
+                 })
+               : setSorter({})
+         } else {
+            const sorter = {}
+            newSorter.forEach(item => {
+               if (item.order) {
+                  sorter[item.field] = item.order === 'ascend' ? 'ASC' : 'DESC'
+               }
+            })
+            setSorter(sorter)
+         }
+      }
+      const handleTableChange = (pagination, filters, sorter, extra) => {
+         console.log('dayle')
+   
+         if (extra.action === 'filter') {
+            handleChangeFilters(filters)
+         } else if (extra.action === 'sort') {
+            handleChangeSorter(sorter)
+         }
       }
 
       const handleAddProject = async (data)=>{
@@ -62,6 +118,7 @@ function Project(){
          try {
             const response = await newsApi.addProject(payload)
             setIsOpenModal(false)
+            history.go(0)
             enqueueSnackbar(response.message, {
                variant: 'success'
             })
@@ -73,8 +130,9 @@ function Project(){
       }
      
   useEffect(()=>{
-   getNewProject()
-  },[])
+   getNewProject(pagination)
+  },[filters, sorter])
+  console.log('2212',pagination)
    return(
       <div>
          <Header title="Project" rightComponent={
@@ -85,6 +143,11 @@ function Project(){
             dataSource={dataSource}
             loading={loading}
             pagination={pagination}
+            onPaginate={handleChangePagination}
+            handleReset={handleReset}
+            handleSearch={handleSearch}
+            onTableChange={handleTableChange}
+
          />
          <AddProjectModal
             isOpen={isOpenModal}

@@ -1,9 +1,10 @@
 .card {
-  width: 350px;
-  height: 387px;
+  width: 340px;
+  height: 25rem;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  margin: 1%;
+  margin: 2vh;
+  box-shadow: 0px 5px 6px #aaaaaa;
 
   &_btnImg {
     border-top-left-radius: 8px;

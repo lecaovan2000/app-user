@@ -8,8 +8,9 @@ import { utilsToken } from '../../../../utils/token';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom';
 import { common } from '../../../../utils/common';
+import {tableUtil}from '../../../../utils/table'
 function ProjectTable(props){
-    const{loading,dataSource,pagination,onPaginate,onTableChange}=props
+    const{loading,dataSource,pagination,onPaginate,onTableChange,handleSearch,handleReset}=props
     const tokenUser = utilsToken.getAccessToken()
     const {enqueueSnackbar}= useSnackbar()
     const history = useHistory() 
@@ -19,6 +20,7 @@ function ProjectTable(props){
                 title:"Tên dự án",
                 dataIndex:'title',
                 key:'title',
+                ...tableUtil.GetColumnSearchProps('title', handleSearch, handleReset),
                 with:300,
                 render: (_, record) => (
                     <>
@@ -36,15 +38,16 @@ function ProjectTable(props){
                  )   
                 
             },
-            {
-               title: 'Thông tin',
-               dataIndex: 'note',
-               key: 'note',
-           },
+         //    {
+         //       title: 'Thông tin',
+         //       dataIndex: 'note',
+         //       key: 'note',
+         //   },
             {
                title:"Giá bán",
                key:"price",
                dataIndex:"price",
+               width:150,
                render:(_, record)=>{
                 return <div>{common.formatPrice(record.price)}VND</div>
                }
@@ -53,6 +56,17 @@ function ProjectTable(props){
                 title:"Trạng thái",
                 dataIndex:'status',
                 key:'status',
+                width:120,
+                filters: [
+                  {
+                     text: 'Đang bán',
+                     value: true
+                  },
+                  {
+                     text: 'Đã bán',
+                     value: false
+                  }
+               ],
                 render:(_, record)=>{
                   return record.status ? 
                   (<div>đang bán</div>):(<div>đã bán</div>)
@@ -85,10 +99,10 @@ function ProjectTable(props){
                    <Space>
                       <Button
                          icon={<EditOutlined />}
-                        //  onClick={() => {
-                        //     history.push(`/article/${record.uid}`)
-                        //  }
-                        // }
+                         onClick={() => {
+                            history.push(`${record.uid}`)
+                         }
+                        }
                       />
                       <Confirm
                          className="confirm-modal"

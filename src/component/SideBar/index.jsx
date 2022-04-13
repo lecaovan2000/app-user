@@ -75,7 +75,6 @@ function SideBar(props) {
                         className="menu-item__icon"
                         size="small"
                         overflowCount={99}
-                        // count={sidebarItem.notiCount || 0}
                      >
                         {comparePath(location.pathname, sidebarItem.routeLink)
                            ? sidebarItem.iconActive

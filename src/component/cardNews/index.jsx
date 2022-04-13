@@ -12,9 +12,9 @@ import { common } from '../../utils/common';
 import { Link } from 'react-router-dom'
 
 function CardNews(props){
-   const{newsData, handleEvent, loading}=props
+   const{newsData, handleEvent}=props
    return(
-         <div style={{display:'flex',flexWrap:'wrap', justifyContent:'flex-start',width:'-webkit-fill-available'  }}>
+         <div style={{display:'flex', justifyContent:'center',flexWrap:'wrap'}}>
          {
            newsData.map && newsData.map((item,key)=>(
                <div className='card' key={key} >

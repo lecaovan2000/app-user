@@ -80,13 +80,14 @@ class SuperTable extends PureComponent {
             />
             {hasPagination && (
                <Pagination
-                  showSizeChanger={false}
+                  // showSizeChanger={false}
                   total={pagination.pageSize}
-                  showTotal={(total, range) => {
-                     return `${range[0]}-${range[1]} của ${total}`;
-                  }}
+                  // // showTotal={(total, range) => {
+                  // //    console.log('page',range)
+                  // //    return `${range[0]}-${range[1]} của ${total}`;
+                  // // }}
                   defaultPageSize={pagination.pageSize}
-                  current={pagination.pageNo}
+                  // defaultCurrent={defaultCurrent}
                   onChange={this.handleChangePagination}
                   className="ems-pagination"
                />
