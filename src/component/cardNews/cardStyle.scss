@@ -1,3 +1,8 @@
+.box-card{
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+}
 .card {
   width: 340px;
   height: 25rem;

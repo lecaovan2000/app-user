@@ -100,7 +100,7 @@ function ProjectTable(props){
                       <Button
                          icon={<EditOutlined />}
                          onClick={() => {
-                            history.push(`${record.uid}`)
+                            history.push(`${record.title}`)
                          }
                         }
                       />

@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom'
 function CardNews(props){
    const{newsData, handleEvent}=props
    return(
-         <div style={{display:'flex', justifyContent:'center',flexWrap:'wrap'}}>
+         <div className='box-card'>
          {
            newsData.map && newsData.map((item,key)=>(
                <div className='card' key={key} >
