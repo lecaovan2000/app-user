@@ -10,23 +10,23 @@ function NewsLatest(){
          value:"all"
       },
       {
-         name:"Biệt Thự",
+         name:"Biệt thự",
          value:"BIET_THU"
       },
       {
-         name:"Nhà Vườn",
+         name:"Nhà vườn",
          value:"NHA_VUON"
       },
       {
-         name:"Nhà Phố",
+         name:"Nhà phố",
          value:"NHA_PHO"
       },
       {
-         name:"Chung Cư",
+         name:"Chung cư",
          value:"CHUNG_CU"
       },
       {
-         name:"Căn Hộ",
+         name:"Căn hộ",
          value:"CAN_HO"
       }
    ] 
@@ -44,7 +44,7 @@ function NewsLatest(){
                <span className='newsLatest__title-nameRight'>MỚI NHẤT</span>
                <p className='newsLatest__title-suggest'>Dự án mới nhất đang gần bạn</p>
             </div>
-            <div>
+            <div className="newsLatest__title-filterList">
                <FilterList
                 list ={options}
                 selected={selected}

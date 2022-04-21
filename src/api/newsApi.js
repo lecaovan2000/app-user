@@ -22,5 +22,9 @@ const newsApi = {
   const url = 'news/create'
   return axiosClient.post(url, common.createFormDataPayload(payload))
 },
+updateNews:(payload)=>{
+  const url = "news/update"
+    return axiosClient.post(url, common.createFormDataPayload(payload))
+}
 };
 export default newsApi;

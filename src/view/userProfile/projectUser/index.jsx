@@ -132,7 +132,6 @@ function Project(){
   useEffect(()=>{
    getNewProject(pagination)
   },[filters, sorter])
-  console.log('2212',pagination)
    return(
       <div>
          <Header title="Project" rightComponent={

@@ -29,8 +29,6 @@ function FilterList(props) {
                ),
             )}
          </div>
-      
-         
       </>
    )
 }

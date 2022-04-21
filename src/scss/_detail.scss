@@ -10,6 +10,7 @@
       font-size: large !important;
    }
    &__news{
+      width: 100%;
       display: flex;
       flex-wrap: wrap;
 
@@ -143,4 +144,72 @@
       }
    }
 
+}
+@media screen and (max-width: 600px) {
+   .details{
+      width: 90%;
+      &__pageHeader{
+         width: 100%;
+         font-size: 2vh !important;
+      }
+      &__news{
+         width: 100%;
+         flex-wrap: wrap;
+         // background-color: #eb5155;
+         &-right{
+            width: 100%;
+            padding-bottom: 50px;
+            &-title{
+               width: 100%;
+            }
+            &-address{
+               width: 100%;
+               &-city{
+                  width: 100%;
+                  display: flex;
+                  &__district{
+                     padding-right: 0px;
+                     flex: none;
+                  }
+               }
+            }
+            &-price{
+               width: 100%;
+               font-size: x-large;
+               justify-content: center;
+               padding-bottom: 20px;
+            }
+            &-phone{
+               width: 210px;
+               margin: auto;
+               height:55px;
+            }
+         }
+         &-left{
+            width: 100%;
+            height: fit-content;
+            &-boxImg{
+               width: 100%;
+               &-img{
+                  border-top-left-radius:8px;
+                  border-top-right-radius: 8px;
+               }
+            }
+         }
+      }
+      &__description{
+         width: 100%;
+         flex-wrap: wrap;
+         &-left{
+            width: 100%;
+         }
+         &-right{
+            width: 100%;
+            padding-top: 0%;
+            &-item{
+               padding: 10px;
+            }
+         }
+      }
+   }
 }

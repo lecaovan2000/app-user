@@ -100,7 +100,7 @@ function ProjectTable(props){
                       <Button
                          icon={<EditOutlined />}
                          onClick={() => {
-                            history.push(`${record.title}`)
+                            history.push(`/edit/${record.uid}`)
                          }
                         }
                       />
@@ -139,6 +139,7 @@ function ProjectTable(props){
             pagination={pagination}
             onPaginate={onPaginate}
             onChange={onTableChange}
+            scroll={{ x:'max-content'}}
         />
     )
 }

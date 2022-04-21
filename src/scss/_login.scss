@@ -43,6 +43,7 @@
         line-height: 124px;
       }
     }
+   
 
     &-right {
       display: flex;
@@ -85,5 +86,16 @@
         
       }
     }
+    @media screen and (max-width: 600px) {
+      &-left {display: none;}
+      &-right {
+        width: 100%;
+        justify-content: center;
+        &__label{
+          color: black;
+        }
+      }
+    }
   }
 }
+

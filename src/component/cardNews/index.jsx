@@ -29,8 +29,7 @@ function CardNews(props){
                   </div>
 
                   <div className='card_content__section'>
-                     <span><IconPlace /></span>
-                     <span className='card_content__section-text'>{item.address.city}</span>
+                     <span className='card_content__section-text'><IconPlace />{item.address.city}</span>
                   </div>
 
                   <div className='card_content__price'>
