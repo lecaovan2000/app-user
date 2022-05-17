@@ -46,8 +46,8 @@ function EditProject(){
                bedroom_no:data.bedroom_no,
                bathroom_no:data.bathroom_no,
                token:tokenUser,
-               uid:data.uid
-               // imgs:data.imgs[0].originFileObj
+               uid:data.uid,
+               imgs:data.imgs[0].originFileObj
          }
          const response = await newsApi.updateNews(payload)
          console.log("edit",response)
@@ -63,7 +63,7 @@ function EditProject(){
       }
    }
    return(
-      <div>{
+      <>{
          !loading&&(
             <FormEditProject
             isOpen={true}
@@ -73,7 +73,7 @@ function EditProject(){
          />
          )}
          
-      </div>
+      </>
    )
 }
 export default EditProject;

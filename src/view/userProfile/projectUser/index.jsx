@@ -8,7 +8,7 @@ import HeaderRight from '../../../component/HeaderprofieUder/HeaderRightAction'
 import AddProjectModal from '../component/addProjectModal';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
-// import constants from '../../../constants/'
+import IconBack from '../../../assets/icons/IconBack';
 
 
 function Project(){
@@ -134,7 +134,13 @@ function Project(){
   },[filters, sorter])
    return(
       <div>
-         <Header title="Project" rightComponent={
+         <Header title="Project" 
+         leftComponent={
+            <button className='bnt_back' onClick={()=>{history.push('/')}}>
+                <IconBack/> Back
+            </button>
+         }
+         rightComponent={
             
             <HeaderRight icon={<IconAdd/>} onClick={()=>{setIsOpenModal(true)}}/>
          }/>

@@ -9,9 +9,7 @@ import { useDispatch } from 'react-redux';
 import { unwrapResult } from '@reduxjs/toolkit';
 import {paths} from '../../constants/paths'
 import userApi from '../../api/userApi';
-import { width } from '@mui/system';
-import { boolean } from 'yup';
-
+import logo from '../../images/logovvv.png'
 
 function Header(){
    const Token = utilsToken.getAccessToken()
@@ -38,9 +36,9 @@ function Header(){
    })
    const menu = (
       <Menu style={{display:'inline-grid', width:250, backgroundColor:'transparent'}} >
-        <NavLink className='menu-response'  to='/login'>Trang chủ</NavLink>
-        <NavLink className='menu-response'  to='/login'>Rao tin</NavLink>
-        <NavLink className='menu-response'  to='/login'>Tin tức</NavLink>
+        <NavLink exact className='menu-response'   to={paths.root}>Trang chủ</NavLink>
+        <NavLink className='menu-response'  to={paths.raotin}>Rao tin</NavLink>
+        <NavLink className='menu-response'  to = 'news'>Tin tức</NavLink>
         <NavLink className='menu-response'  to='/login'>Giới thiệu</NavLink>
         <NavLink className='menu-response'  to='/login'>Liên hệ</NavLink>
       </Menu>
@@ -56,13 +54,13 @@ function Header(){
                   </button>
                </Dropdown>
          </div>
-               <div><NavLink to='/' className='header-left-logo'>logo</NavLink></div>  
+               <div><a href='/' className='header-left-logo'><img className='header-left-logo-img' src={logo}/></a></div>  
          </div>
          
          <div className='header-menu'>
             <ul className='header-menu-item'>
-               <NavLink to ={paths.root} className='header-menu-item-btn'>Trang chủ</NavLink>
-               <NavLink to = 'collections' className='header-menu-item-btn'>Rao tin</NavLink>
+               <NavLink exact to ={paths.root} className='header-menu-item-btn'>Trang chủ</NavLink>
+               <NavLink to = {paths.raotin} className='header-menu-item-btn'>Rao tin</NavLink>
                <NavLink to = 'news' className='header-menu-item-btn'>Tin tức</NavLink>
                <NavLink to = 'introduce' className='header-menu-item-btn'>Giới thiệu</NavLink>
                <NavLink to = 'contact' className='header-menu-item-btn'>Liên hệ</NavLink>
@@ -75,6 +73,7 @@ function Header(){
                   <Popover
                   className='header-login__access-avatar'
                   style={{paddingLeft:10}}
+                  trigger="click"
                   content={
                      <div>
                         <button  onClick={getProfile}>Tài Khoản</button>
@@ -88,6 +87,10 @@ function Header(){
                   }
                   >
                      <div>
+                        <button type="primary" style={{
+                           backgroundColor:'rgba(3, 3, 3, 0)',
+                           border:'none'
+                           }} >
                         <Avatar
                            size={{xxl:50,xl:50,md:40,sm:30}}
                            src={profileUser.avatar||'https://joeschmoe.io/api/v1/random'}
@@ -96,6 +99,8 @@ function Header(){
                               cursor: 'pointer'
                            }}
                         />
+                        </button>
+                        
                      </div>
                   </Popover>
                </div>

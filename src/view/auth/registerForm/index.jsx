@@ -6,7 +6,7 @@ import {yupResolver}from '@hookform/resolvers/yup'
 import { paths } from '../../../constants/paths';
 import * as yup from 'yup'
 import PasswordField from '../../../component/form-controls/passwordField';
-import {Button}from 'antd'
+import {Button, Col, Row}from 'antd'
 import { useHistory } from 'react-router';
 function RegisterForm(props){
    const schema = yup.object().shape({
@@ -34,60 +34,68 @@ function RegisterForm(props){
    const history = useHistory()
    return(
       <form onSubmit={form.handleSubmit(handleSubmit)}>
-        <div className='login-content-right__label'>
-            <label htmlFor="username">Username</label>
-         </div>
-         <InputField 
-            name='username' 
-            form={form} 
-            placeholder='Username...' 
-            style={{ width: 300 }}
-            size='large'
-         />
-         
-         <div className='login-content-right__label'>
-            <label htmlFor="password">Password</label>
-         </div>
-          <InputField 
-            name='email' 
-            form={form} 
-            placeholder='Email...' 
-            style={{ width: 300 }}
-            size='large'
-         />
-         <div className='login-content-right__label'>
-            <label htmlFor="password">Password</label>
-         </div>
-         <InputField
-            name='phone'
-            form={form}
-            placeholder='Phone...'
-            style={{width:300}}
-            size='large'
-         />
-         
-         <div className='login-content-right__label'>
-            <label htmlFor="password">Password</label>
-         </div>
-         <InputField 
-            name='fullname' 
-            form={form} 
-            placeholder='FullName...' 
-            style={{ width: 300 }}
-            size='large'
-         />
-         
-         <div className='login-content-right__label'>
-            <label htmlFor="password">Password</label>
-         </div>
-
-         <PasswordField 
-            name='password'
-            form={form}
-            placeholder='Password'
-            style={{ width: 300 }}
-            size='large'
-         />
+         <Row gutter={[24,0]}>
+            <Col span={24}>
+               <InputField
+                  label='UserName'
+                  name='username' 
+                  form={form} 
+                  placeholder='Username...' 
+                  // style={{ width: 300 }}
+                  size='large'
+                  labelCol={{ span: 24 }}
+               />
+            </Col>
+         </Row>
+         <Row>
+            <Col span={24}>
+               <InputField 
+                  label='Email'
+                  name='email' 
+                  form={form} 
+                  placeholder='Email...' 
+                  // style={{ width: 300 }}
+                  size='large'
+                  labelCol={{ span: 24 }}
+               />
+            </Col>
+         </Row>
+         <Row>
+            <Col span={24}>
+               <InputField
+                  label='Phone'
+                  name='phone'
+                  form={form}
+                  placeholder='Phone...'
+                  labelCol={{ span: 24 }}
+                  size='large'
+               />
+            </Col>
+         </Row>
+         <Row>
+            <Col span={24}>
+               <InputField
+                  label='FullName'
+                  name='fullname' 
+                  form={form} 
+                  placeholder='FullName...' 
+                  labelCol={{ span: 24 }}
+                  size='large'
+               />
+            </Col>
+         </Row>
+         <Row>
+            <Col span={24}>
+               <PasswordField 
+                  label='Password'
+                  name='password'
+                  form={form}
+                  placeholder='Password'
+                  labelCol={{ span: 24 }}
+                  size='large'
+               />
+            </Col>
+         </Row>
          <Button 
             loading={isSubmitting}
             htmlType="submit"

@@ -85,7 +85,7 @@
             display: flex;
          }
       }
-      .active {
+      .active_ant {
          color: #1768b2;
       }
    }
@@ -100,7 +100,7 @@
          stroke: #797979;
          stroke-width: 2;
       }
-      &--active {
+      &--active_ant {
          path {
             fill: #f1f1f1;
          }

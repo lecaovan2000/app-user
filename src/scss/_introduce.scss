@@ -1,0 +1,15 @@
+.root_introduce{
+   width: 90%;
+   margin: auto
+}
+.title_introduce{
+   display: flex
+}
+.text_introduce{
+   float: left;
+   display: flex;
+   margin-left: none;
+   // word-break: break-word;
+   writing-mode:sideways-rl;
+   text-align: left;
+}

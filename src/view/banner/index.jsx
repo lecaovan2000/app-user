@@ -8,7 +8,7 @@ function Banner(){
    return(
       <div className='banner'>
          <Header/>
-         {/* <div className='banner-title'>
+         <div className='banner-title'>
             <span className='banner-title-text'>Searching for your dream home</span>
          </div>
          <div className='banner-search'>
@@ -24,7 +24,7 @@ function Banner(){
          </div>
          <div className='banner-collections'>
          
-         </div> */}
+         </div>
       </div>
    )
 }

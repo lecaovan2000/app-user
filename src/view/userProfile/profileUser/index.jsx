@@ -7,6 +7,7 @@ import HeaderRightAction from '../../../component/HeaderprofieUder/HeaderRightAc
 import FormEditProfile from '../component/formEditProfile';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom';
+import IconBack from '../../../assets/icons/IconBack';
 
 
 function ProfileUser(){
@@ -55,7 +56,13 @@ function ProfileUser(){
     }
    return(
       <div>
-         <Header title='Profile' rightComponent={
+         <Header title='Profile' 
+          leftComponent={
+            <button className='bnt_back' onClick={()=>{history.push('/')}}>
+               <IconBack/> Back
+            </button>
+         }
+         rightComponent={
             <HeaderRightAction text='Edit' onClick={()=>{setIsOpenModal(true)}} />
          } />
          <FormProfile

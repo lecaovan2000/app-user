@@ -116,7 +116,7 @@ function SideBar(props) {
    return (
       <div className={`sidebar__container ${isCollapsed ? 'sidebar--collapsed' : ''}`}>
          <div className="sidebar__nav">
-            <button onClick={callBack}>Quay lại</button>
+            {/* <button onClick={callBack}>Quay lại</button> */}
             <div className="sidebar__header">
                <div className="sidebar__header-icon" onClick={handleCollapseSideBar}>
                   {isCollapsed ? <IconMenuCollapse /> : <IconMenuExpand />}

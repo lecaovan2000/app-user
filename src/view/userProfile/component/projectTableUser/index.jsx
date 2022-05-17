@@ -78,6 +78,9 @@ function ProjectTable(props){
                 key: 'type',
                 width: 100,
                 align: 'center',
+                render: (_, record)=>{
+                  return record.type ==='BIET_THU'? <>Biệt thự</> :record.type==='NHA_VUON'?<>Nhà vườn</>:record.type==='NHA_PHO'?<>Nhà phố</>:record.type==='CHUNG_CU'?<>Chung cư</>:<>Căn hộ</>
+                }
             },
             {
                title: 'Diện tích',

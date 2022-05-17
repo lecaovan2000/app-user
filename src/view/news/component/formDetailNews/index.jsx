@@ -57,7 +57,7 @@ function NewsDetailForm(props){
                   </div>   
                </div>
                <div  className='details__news-right-price'>
-                    <span className='details__news-right-price-text'>{ common.formatPrice(data.price)} VND</span>
+                    <span className='details__news-right-price-text'><span>Giá bán: </span>{ common.formatPrice(data.price)} VND</span>
                </div>
                <a  href={`tel:${data.owner.phone}`} className='details__news-right-phone' >
                    <img style={{width:32, height:32}} src={icon} alt='...' />
@@ -83,50 +83,50 @@ function NewsDetailForm(props){
          </div>
          <TabTitleHeader text="Chi tiết dự án" />
          <p>
-         Một bậc quân vương mang trong con tim hình hài đất nước
-Ngỡ như dân an ta sẽ chẳng bao giờ buồn
-Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
-Khiến cho ta say ta mê như chốn thiên đường
-Trời cao như đang trêu ngươi thân ta khi bông hoa ấy
-Trót mang con tim trao cho một nam nhân thường
-Giận lòng ta ban cho bông hoa thơm hồi về cung cấm
-Khiến em luôn luôn bên ta mãi mãi không buông
-Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
-Nhìn về quê hương em ôm tương tư nặng lòng biết bao
-Một người nam nhân không vinh không hoa mà có lẽ nào
-Người lại yêu thương quan tâm hơn ta một đế vương sao
-Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
-Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
-Đành lòng buông tay cho em ra đi với mối tình vàng
-Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
-Một bậc quân vương mang trong con tim hình hài đất nước
-Ngỡ như dân an ta sẽ chẳng bao giờ buồn
-Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
-Khiến cho ta say ta mê như chốn thiên đường
-Trời cao như đang trêu ngươi thân ta khi bông hoa ấy
-Trót mang con tim trao cho một nam nhân thường
-Giận lòng ta ban cho bông hoa thơm hồi về cung cấm
-Khiến em luôn luôn bên ta mãi mãi không buông
-Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
-Nhìn về quê hương em ôm tương tư nặng lòng biết bao
-Một người nam nhân không vinh không hoa mà có lẽ nào
-Người lại yêu thương quan tâm hơn ta một đế vương sao
-Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
-Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
-Đành lòng buông tay cho em ra đi với mối tình vàng
-Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
-Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
-Nhìn về quê hương em ôm tương tư nặng lòng biết bao
-Một người nam nhân không vinh không hoa mà có lẽ nào
-Người lại yêu thương quan tâm hơn ta một đế vương sao
-Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
-Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
-Đành lòng buông tay cho em ra đi với mối tình vàng
-Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
-Một bậc quân vương mang trong con tim hình hài đất nước
-Ngỡ như dân an ta sẽ chẳng bao giờ buồn
-Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
-Khiến cho ta say ta mê như chốn thiên đường
+               Một bậc quân vương mang trong con tim hình hài đất nước
+               Ngỡ như dân an ta sẽ chẳng bao giờ buồn
+               Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
+               Khiến cho ta say ta mê như chốn thiên đường
+               Trời cao như đang trêu ngươi thân ta khi bông hoa ấy
+               Trót mang con tim trao cho một nam nhân thường
+               Giận lòng ta ban cho bông hoa thơm hồi về cung cấm
+               Khiến em luôn luôn bên ta mãi mãi không buông
+               Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
+               Nhìn về quê hương em ôm tương tư nặng lòng biết bao
+               Một người nam nhân không vinh không hoa mà có lẽ nào
+               Người lại yêu thương quan tâm hơn ta một đế vương sao
+               Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
+               Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
+               Đành lòng buông tay cho em ra đi với mối tình vàng
+               Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
+               Một bậc quân vương mang trong con tim hình hài đất nước
+               Ngỡ như dân an ta sẽ chẳng bao giờ buồn
+               Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
+               Khiến cho ta say ta mê như chốn thiên đường
+               Trời cao như đang trêu ngươi thân ta khi bông hoa ấy
+               Trót mang con tim trao cho một nam nhân thường
+               Giận lòng ta ban cho bông hoa thơm hồi về cung cấm
+               Khiến em luôn luôn bên ta mãi mãi không buông
+               Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
+               Nhìn về quê hương em ôm tương tư nặng lòng biết bao
+               Một người nam nhân không vinh không hoa mà có lẽ nào
+               Người lại yêu thương quan tâm hơn ta một đế vương sao
+               Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
+               Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
+               Đành lòng buông tay cho em ra đi với mối tình vàng
+               Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
+               Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
+               Nhìn về quê hương em ôm tương tư nặng lòng biết bao
+               Một người nam nhân không vinh không hoa mà có lẽ nào
+               Người lại yêu thương quan tâm hơn ta một đế vương sao
+               Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
+               Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
+               Đành lòng buông tay cho em ra đi với mối tình vàng
+               Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
+               Một bậc quân vương mang trong con tim hình hài đất nước
+               Ngỡ như dân an ta sẽ chẳng bao giờ buồn
+               Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
+               Khiến cho ta say ta mê như chốn thiên đường
          </p>
       </div> 
          )
