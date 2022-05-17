@@ -25,6 +25,7 @@ function RaoTin(){
          bedroom_no:data.bedroom_no,
          bathroom_no:data.bathroom_no,
          token:tokenUser,
+         note:data.note,
          imgs:data.imgs[0].originFileObj
       }
       
@@ -42,7 +43,7 @@ function RaoTin(){
       }
    }
    return(
-      <div>
+      <div className='collections_root'>
          <Header/>
          <div>
          {token ?

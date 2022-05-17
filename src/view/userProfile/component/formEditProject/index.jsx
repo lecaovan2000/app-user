@@ -9,6 +9,7 @@ import SelectField from '../../../../component/form-controls/SelectField'
 import NumberField from '../../../../component/form-controls/NumberField'
 import FileUploadField from '../../../../component/form-controls/FileUploadField'
 import { utilsToken } from '../../../../utils/token'
+import TextAreaField from '../../../../component/form-controls/TextAreaField'
 
 function FormEditProject(props){
     const {isOpen,toggle,onSave,dataNews,title} = props
@@ -47,7 +48,8 @@ function FormEditProject(props){
          acreage:dataNews.acreage ||'',
          bedroom_no:dataNews.bedroom_no||'',
          bathroom_no:dataNews.bathroom_no||'',
-         uid:dataNews.uid
+         note:dataNews.note || '',
+         uid:dataNews.uid,
         //  imgs:data.img_info[0]
       })
    },[dataNews])
@@ -215,6 +217,18 @@ function FormEditProject(props){
                         />
                     </Col>
                 </Row>
+                {/* <Row>
+                    <Col  span={24}>
+                            <TextAreaField
+                                size="large"
+                                name="note"
+                                form={form}
+                                placeholder="Nội dung"
+                                label="Nội dung"
+                                labelCol={{ span: 24 }}
+                            />
+                    </Col>
+                </Row> */}
                 <Row>
                     <Col>
                             <FileUploadField

@@ -8,6 +8,7 @@ import InputField from '../../../../component/form-controls/InputField'
 import SelectField from '../../../../component/form-controls/SelectField'
 import NumberField from '../../../../component/form-controls/NumberField'
 import FileUploadField from '../../../../component/form-controls/FileUploadField'
+import TextAreaFiled from '../../../../component/form-controls/TextAreaField'
 import { utilsToken } from '../../../../utils/token'
 
 function AddProjectModal(props){
@@ -35,6 +36,7 @@ function AddProjectModal(props){
             bedroom_no:'',
             bathroom_no:'',
             token:tokenUser,
+            note:'',
             imgs:[],
 
         },
@@ -201,6 +203,18 @@ function AddProjectModal(props){
                             label="Phòng tắm"
                             labelCol={{ span: 24 }}
                         />
+                    </Col>
+                </Row>
+                <Row>
+                    <Col  span={24}>
+                            <TextAreaFiled
+                                size="large"
+                                name="note"
+                                form={form}
+                                placeholder="Nội dung"
+                                label="Nội dung"
+                                labelCol={{ span: 24 }}
+                            />
                     </Col>
                 </Row>
                 <Row>

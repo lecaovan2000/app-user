@@ -112,6 +112,7 @@ function Project(){
             bedroom_no:data.bedroom_no,
             bathroom_no:data.bathroom_no,
             token:tokenUser,
+            note:data.note,
             imgs:data.imgs[0].originFileObj
          }
          

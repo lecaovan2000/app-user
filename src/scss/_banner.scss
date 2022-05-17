@@ -1,7 +1,8 @@
 .banner {
   width:100%;
-  height:100vh;
-  background-image: url(../images/background.jpg);
+  height:90vh;
+  // background-color: aliceblue;
+  // background-image: url(../images/background.jpg);
   background-size:cover;
 
   &-title {
@@ -58,6 +59,20 @@
      
 
   }
+}
+.contentStyle_carousel1{
+  width: 100%;
+  height: 90vh;
+  background-image: url(../images/datnenbanner.jpg);
+  background-size: cover;
+}
+.contentStyle_carousel{
+  align-items: center;
+  width: 100%;
+  height:600px;
+  // line-height: 160px;
+  background-color: #82ba4f;
+  background-size: cover;
 }
 @media screen and (max-width: 600px) {
   .banner{

@@ -20,6 +20,7 @@ function ProjectTable(props){
                 title:"Tên dự án",
                 dataIndex:'title',
                 key:'title',
+                width:300,
                 ...tableUtil.GetColumnSearchProps('title', handleSearch, handleReset),
                 with:300,
                 render: (_, record) => (
@@ -38,11 +39,11 @@ function ProjectTable(props){
                  )   
                 
             },
-         //    {
-         //       title: 'Thông tin',
-         //       dataIndex: 'note',
-         //       key: 'note',
-         //   },
+            {
+               title: 'Thông tin',
+               dataIndex: 'note',
+               key: 'note',
+           },
             {
                title:"Giá bán",
                key:"price",
@@ -69,7 +70,7 @@ function ProjectTable(props){
                ],
                 render:(_, record)=>{
                   return record.status ? 
-                  (<div>đang bán</div>):(<div>đã bán</div>)
+                  (<div className='status_sale'>đang bán</div>):(<div className='status_sold'>đã bán</div>)
                 } 
             },
             {

@@ -5,8 +5,8 @@ import Login from '../auth/login';
 function BodyPage(){
    return(
       <>
-         <Banner/>
-         <News/>
+         <div><Banner/></div>
+         <div><News/></div>
       </>
    )
 }

@@ -10,6 +10,7 @@ class Path{
       this.raotin = '/collections'
       this.pagenews = '/news'
       this.gioithieu = '/introduce'
+      this.contact = '/contact'
       
       
    }

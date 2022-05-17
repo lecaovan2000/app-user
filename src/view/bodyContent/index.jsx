@@ -10,11 +10,13 @@ import EditProject from '../userProfile/projectUser/editProject';
 import RaoTin from '../PageRaoTin';
 import PageNews from '../PageNews';
 import PageIntroduce from '../PageIntroduce';
+import PageContact from '../PageContact';
 function BodyContent(){
    return(
       <Switch>
          <Route exact path={paths.root} component={BodyPage} />
          <Route path={paths.raotin} component={RaoTin} />
+         <Route path={paths.contact} component={PageContact} />
          <Route path={paths.pagenews} component={PageNews} />
          <Route path={paths.gioithieu} component={PageIntroduce} />
          <Route path={paths.register} component={Register} />

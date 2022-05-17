@@ -47,6 +47,7 @@ function EditProject(){
                bathroom_no:data.bathroom_no,
                token:tokenUser,
                uid:data.uid,
+               // note:data.note,
                imgs:data.imgs[0].originFileObj
          }
          const response = await newsApi.updateNews(payload)

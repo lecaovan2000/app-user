@@ -4,6 +4,11 @@ import { common } from '../../../../utils/common';
 import icon from '../../../../assets/icons/58-call-phone-outline.gif'
 import TabTitleHeader from '../../../../component/tabTitleHeader';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import { Carousel } from 'react-responsive-carousel';
+import img1 from '../../../../images/background.jpg'
+import img2 from '../../../../images/datnenbanner.jpg'
+import img3 from '../../../../images/toan-canh-bat-dong-san-nha-trang-1625440231.jpg'
+import 'react-responsive-carousel/lib/styles/carousel.min.css' ;
 function NewsDetailForm(props){
    const {data, loading} = props
    console.log('datadetail',data)
@@ -33,11 +38,19 @@ function NewsDetailForm(props){
             />
          </div>
          <div className='details__news'>
-            <div className='details__news-left'>
-               <div className='details__news-left-boxImg'>
-                  <img className='details__news-left-boxImg-img' src={data.img_info[0]}   alt="..."/>
+            <Carousel className='carousel_detail' >
+               {data.img_info.map((item, key)=>(<div key={key}>
+                  <img className='text111' src={item} /></div>))}
+               {/* <div className='text11'>
+                  <img className='text111' src={img1} />
                </div>
-            </div>
+               <div className='text11'>
+                  <img  className='text111' src={img2} />
+               </div>
+               <div className='text11'>
+                  <img  className='text111' src={img3} />
+               </div> */}
+            </Carousel>
             <div className='details__news-right'>
                <div className='details__news-right-title'>
                   <div className='details__news-right-title-text'>{data.title}</div>
