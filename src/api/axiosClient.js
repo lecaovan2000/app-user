@@ -6,7 +6,7 @@ import { utilsToken } from "../utils/token";
 // Please have a look at here `https://github.com/axios/axios#request- config` for the full list of configs
 const PORT = process.env.PORT || 8000;
 const axiosClient = axios.create({
-  baseURL: `http://18.136.193.169:${PORT}/api/v1/`,
+  baseURL: `http://13.229.92.204:${PORT}/api/v1/`,
   Headers: {
     'Content-Type': 'application/json'
   },

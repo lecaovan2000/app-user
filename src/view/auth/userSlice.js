@@ -1,9 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import authApi from "../../api/authApi";
 import StorageKeys from "../../constants/storage-keys";
-import { common } from "../../utils/common";
-import { paths } from "../../constants/paths";
-import { utilsToken } from "../../utils/token";
 
 // createAsyncThunk cái này sử dụng cho login và register
 export const register = createAsyncThunk("user/register", async (payload) => {
