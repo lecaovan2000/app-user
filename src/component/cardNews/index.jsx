@@ -10,6 +10,8 @@ import IconBath from '../../assets/icons/IconBath';
 import IconSquare from '../../assets/icons/IconSquare';
 import { common } from '../../utils/common';
 import { Link } from 'react-router-dom'
+import { Pagination } from 'antd';
+
 
 function CardNews(props){
    const{newsData, handleEvent}=props
@@ -52,6 +54,7 @@ function CardNews(props){
             ))
             
          }
+         <Pagination defaultCurrent={1} total={10}/>
       </div>
       
    )
