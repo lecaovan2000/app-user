@@ -38,13 +38,13 @@ function CardNews(props){
                   </div>
 
                   <div className='card_content__extentions'>
-                     <div>
+                     <div className='card_content__extentions-icon'>
                         <IconBed/> <span className='card_content__extentions-text'>{item.bedroom_no} <sup>Ngủ</sup></span>
                      </div>
-                     <div>
+                     <div className='card_content__extentions-icon'>
                         <IconBath/> <span  className='card_content__extentions-text'>{item.bathroom_no}<sup>Tắm</sup></span>
                      </div>
-                     <div>
+                     <div className='card_content__extentions-icon'>
                         <IconSquare/> <span  className='card_content__extentions-text'>{item.acreage}<sup>m2</sup></span>
                      </div>
                   </div>         

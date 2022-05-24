@@ -37,7 +37,7 @@ function Project(){
                token:tokenUser,
             }
             const res = await newsApi.getNewsByUser(payload)
-            console.log('page size',res)
+            // console.log('page size',res)
             setDataSource(res.data)
             setPagination({
                // pageNo: res.total_page,

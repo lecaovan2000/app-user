@@ -29,13 +29,14 @@ function FormEditProject(props){
         // bedroom_no:'',
         // bathroom_no:'',
         // token:tokenUser,
-        // imgs:[],
+        //  imgs:Fil,
         resolver: yupResolver(schema),
      })
      const {
       reset,
       formState: { isSubmitting }
    } = form
+   console.log('dataa newner',dataNews)
    useEffect(()=>{
       reset({
          title: dataNews.title || '',
@@ -50,7 +51,7 @@ function FormEditProject(props){
          bathroom_no:dataNews.bathroom_no||'',
          note:dataNews.note || '',
          uid:dataNews.uid,
-        //  imgs:data.img_info[0]
+        //  imgs:dataNews.img_info,
       })
    },[dataNews])
    

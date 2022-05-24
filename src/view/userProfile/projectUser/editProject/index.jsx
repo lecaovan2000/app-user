@@ -1,4 +1,4 @@
-import {React, useEffect, useState}from 'react'
+import {Children, React, useEffect, useState}from 'react'
 import { useParams } from 'react-router'
 import FormEditProject from '../../component/formEditProject'
 import Header from '../../../../component/HeaderprofieUder'
@@ -31,9 +31,10 @@ function EditProject(){
       }
       getDataNews()
    },[])
+   
+
    const handleSubmit = async(data)=>{
-      console.log('data từ foem edit:', data)
-      
+      console.log('data từ form',data)
       try {
          const payload={
             title:data.title,
@@ -47,11 +48,12 @@ function EditProject(){
                bathroom_no:data.bathroom_no,
                token:tokenUser,
                uid:data.uid,
-               // note:data.note,
-               imgs:data.imgs[0].originFileObj
+               imgs:data.imgs[{}.originFileObj]
+                  
+               
          }
          const response = await newsApi.updateNews(payload)
-         console.log("edit",response)
+         console.log("new edit",response)
          enqueueSnackbar(response.message,{
             variant:'success'
          })

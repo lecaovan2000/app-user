@@ -58,11 +58,11 @@ function NewsDetailForm(props){
                <div  className='details__news-right-address'>
                   <div  className='details__news-right-address-city'>
                      <div className='details__news-right-address-city__district'>Thuộc Quận/huyện: </div>
-                     <div className='details__news-right-address-city__info'><span>{data.address.street}</span> <span>{data.address.district}</span> <span>{data.address.city}</span></div>
+                     <div className='details__news-right-address-city__info'><span>{data.address.street}</span> <span>{data.address.district}</span>  <span>{data.address.city}</span></div>
                   </div  >
                   <div  className='details__news-right-address-project'>
                      <div className='details__news-right-address-city__district'>Kiểu dự án: </div>
-                     <div className='details__news-right-address-city__info'>{data.type}</div>
+                     <div className='details__news-right-address-city__info'>{data.type==='NHA_VUON'?<div>Nhà vườn</div>:data.type==='BIET_THU'?<div>Biệt thự</div>:data.type==='NHA_PHO'?<div>Nhà phố</div>:data.type==='CHUNG_CU'?<div>Chung cư</div>:<div>Căn hộ</div>}</div>
                   </div>
                   <div  className='details__news-right-address-status'>
                      <div className='details__news-right-address-city__district'>Trạng thái: </div>
@@ -82,7 +82,7 @@ function NewsDetailForm(props){
          <div className='details__description'>
             <div className='details__description-left'>
             <div className='details__description-left-item'><span className='details__description-left-item-left'>Loại tin rao:</span> <span className='details__description-left-item-right'>Đang update</span></div>
-            <div className='details__description-left-item'><span className='details__description-left-item-left'>Địa chỉ:</span> <div className='details__description-left-item-right'> <span>{data.address.street}</span> <span>{data.address.district}</span> <span>{data.address.city}</span></div></div>
+            <div className='details__description-left-item'><span className='details__description-left-item-left'>Địa chỉ:</span> <div className='details__description-left-item-right'> <span>{data.address.street}</span>&ensp;<span>{data.address.district}</span> &ensp;<span>{data.address.city}</span></div></div>
             <div className='details__description-left-item'><span className='details__description-left-item-left'>Diện tích:</span> <span className='details__description-left-item-right'>{data.acreage}m2</span></div>
             <div className='details__description-left-item'><span className='details__description-left-item-left'>Phòng ngủ:</span> <span className='details__description-left-item-right'>{data.bedroom_no}</span></div>
             <div className='details__description-left-item'><span className='details__description-left-item-left'>Phòng WC: </span><span className='details__description-left-item-right'>Đang update</span></div>
@@ -96,50 +96,7 @@ function NewsDetailForm(props){
          </div>
          <TabTitleHeader text="Chi tiết dự án" />
          <p>
-               Một bậc quân vương mang trong con tim hình hài đất nước
-               Ngỡ như dân an ta sẽ chẳng bao giờ buồn
-               Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
-               Khiến cho ta say ta mê như chốn thiên đường
-               Trời cao như đang trêu ngươi thân ta khi bông hoa ấy
-               Trót mang con tim trao cho một nam nhân thường
-               Giận lòng ta ban cho bông hoa thơm hồi về cung cấm
-               Khiến em luôn luôn bên ta mãi mãi không buông
-               Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
-               Nhìn về quê hương em ôm tương tư nặng lòng biết bao
-               Một người nam nhân không vinh không hoa mà có lẽ nào
-               Người lại yêu thương quan tâm hơn ta một đế vương sao
-               Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
-               Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
-               Đành lòng buông tay cho em ra đi với mối tình vàng
-               Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
-               Một bậc quân vương mang trong con tim hình hài đất nước
-               Ngỡ như dân an ta sẽ chẳng bao giờ buồn
-               Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
-               Khiến cho ta say ta mê như chốn thiên đường
-               Trời cao như đang trêu ngươi thân ta khi bông hoa ấy
-               Trót mang con tim trao cho một nam nhân thường
-               Giận lòng ta ban cho bông hoa thơm hồi về cung cấm
-               Khiến em luôn luôn bên ta mãi mãi không buông
-               Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
-               Nhìn về quê hương em ôm tương tư nặng lòng biết bao
-               Một người nam nhân không vinh không hoa mà có lẽ nào
-               Người lại yêu thương quan tâm hơn ta một đế vương sao
-               Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
-               Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
-               Đành lòng buông tay cho em ra đi với mối tình vàng
-               Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
-               Mà nào ngờ đâu thân em nơi đây tâm trí nơi nào
-               Nhìn về quê hương em ôm tương tư nặng lòng biết bao
-               Một người nam nhân không vinh không hoa mà có lẽ nào
-               Người lại yêu thương quan tâm hơn ta một đế vương sao
-               Giọt lệ quân vương không khi nào rơi khi nước chưa tàn
-               Mà tình chưa yên nên vương trên mi giọt buồn chứa chan
-               Đành lòng buông tay cho em ra đi với mối tình vàng
-               Một bậc quân vương uy nghiêm oai phong nhưng tim nát tan
-               Một bậc quân vương mang trong con tim hình hài đất nước
-               Ngỡ như dân an ta sẽ chẳng bao giờ buồn
-               Nào ngờ một hôm ngao du nhân gian chạm một ánh mắt
-               Khiến cho ta say ta mê như chốn thiên đường
+               {data.note ===''?<h3>Nội dung trống </h3>:data.note}
          </p>
       </div> 
          )
