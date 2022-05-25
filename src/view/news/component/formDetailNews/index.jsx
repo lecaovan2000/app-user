@@ -85,7 +85,7 @@ function NewsDetailForm(props){
             <div className='details__description-left-item'><span className='details__description-left-item-left'>Địa chỉ:</span> <div className='details__description-left-item-right'> <span>{data.address.street}</span>&ensp;<span>{data.address.district}</span> &ensp;<span>{data.address.city}</span></div></div>
             <div className='details__description-left-item'><span className='details__description-left-item-left'>Diện tích:</span> <span className='details__description-left-item-right'>{data.acreage}m2</span></div>
             <div className='details__description-left-item'><span className='details__description-left-item-left'>Phòng ngủ:</span> <span className='details__description-left-item-right'>{data.bedroom_no}</span></div>
-            <div className='details__description-left-item'><span className='details__description-left-item-left'>Phòng WC: </span><span className='details__description-left-item-right'>Đang update</span></div>
+            <div className='details__description-left-item'><span className='details__description-left-item-left'>Phòng WC: </span><span className='details__description-left-item-right'>{data.bathroom_no}</span></div>
             <div className='details__description-left-item'><span className='details__description-left-item-left'>{'Hướng nhà(dự án):'}</span><span className='details__description-left-item-right'>Đang update</span></div>
             </div>
             <div className='details__description-right'>

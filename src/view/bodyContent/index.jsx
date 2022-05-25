@@ -6,11 +6,12 @@ import Register from '../auth/register'
 import BodyPage from '../bodyPage';
 import DetailNewsPage from '../news/component/detailNews';
 import UserProfile from '../userProfile';
-import EditProject from '../userProfile/projectUser/editProject';
+// import EditProject from '../userProfile/projectUser/editProject';
 import RaoTin from '../PageRaoTin';
 import PageNews from '../PageNews';
 import PageIntroduce from '../PageIntroduce';
 import PageContact from '../PageContact';
+import Project from '../userProfile/projectUser';
 function BodyContent(){
    return(
       <Switch>
@@ -22,7 +23,8 @@ function BodyContent(){
          <Route path={paths.register} component={Register} />
          <Route path={paths.userprofile} component={UserProfile} />
          <Route path={paths.login} component={Login} />
-         <Route path={'/edit/:newsUid'} component={EditProject} />
+         <Route path={paths.userProject} component={Project} />
+         {/* <Route path={'/edit/:newsUid'} component={EditProject} /> */}
          <Route path='/:newsUid' component={DetailNewsPage}/>
 
       </Switch>

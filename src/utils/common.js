@@ -29,12 +29,18 @@ function getBase64(file) {
       reader.onerror = error => reject(error)
    })
 }
-
+const checkEmptyObject = obj => {
+   for (let key in obj) {
+      if (obj.hasOwnProperty(key)) return false
+   }
+   return true
+}
 
 export const common = {
    createFormDataPayload,
    removeBearerToken,
    removeCurrentUser,
    formatPrice,
-   getBase64
+   getBase64,
+   checkEmptyObject
 }

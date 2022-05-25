@@ -8,9 +8,11 @@ import { utilsToken } from '../../../../utils/token';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom';
 import { common } from '../../../../utils/common';
-import {tableUtil}from '../../../../utils/table'
+import {tableUtil}from '../../../../utils/table';
+import FormEditProject from '../formEditProject';
+import { useSelector } from 'react-redux';
 function ProjectTable(props){
-    const{loading,dataSource,pagination,onPaginate,onTableChange,handleSearch,handleReset}=props
+    const{loading,dataSource,pagination,onPaginate,onTableChange,handleSearch,handleReset,openModal}=props
     const tokenUser = utilsToken.getAccessToken()
     const {enqueueSnackbar}= useSnackbar()
     const history = useHistory() 
@@ -104,9 +106,8 @@ function ProjectTable(props){
                       <Button
                          icon={<EditOutlined />}
                          onClick={() => {
-                            history.push(`/edit/${record.uid}`)
-                         }
-                        }
+                           openModal(record.uid)
+                        }}
                       />
                       <Confirm
                          className="confirm-modal"
@@ -135,7 +136,9 @@ function ProjectTable(props){
         ]
     })
     return(
-        <SuperTable 
+        
+        <div>
+           <SuperTable 
             columns={columns}
             submitting={loading}
             hasPagination={true}
@@ -145,6 +148,8 @@ function ProjectTable(props){
             onChange={onTableChange}
             scroll={{ x:'max-content'}}
         />
+        </div>
+        
     )
 }
 export default ProjectTable;

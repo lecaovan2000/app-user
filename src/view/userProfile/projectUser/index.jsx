@@ -9,17 +9,23 @@ import AddProjectModal from '../component/addProjectModal';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import IconBack from '../../../assets/icons/IconBack';
+import FormEditProject from '../component/formEditProject';
+import { useParams } from 'react-router'
 
 
 function Project(){
    const { enqueueSnackbar } = useSnackbar()
    const [dataSource,setDataSource]=useState({})
    const [loading, setLoading]=useState(false)
+   const [loadingModal, setLoadingModal]=useState(false)
    const [isOpenModal,setIsOpenModal] = useState(false)
    const tokenUser = utilsToken.getAccessToken()
    const [filters, setFilters] = useState({})
    const [sorter, setSorter]=useState({})
    const history = useHistory()
+   const [isOpenModalEdit,setIsOpenModalEdit]=useState(false)
+   const [dataNewsModalEdit,setDataNewsModalEdit]=useState({})
+   
    
    const default_pagination ={
       pageNo: 1,
@@ -99,7 +105,39 @@ function Project(){
             handleChangeSorter(sorter)
          }
       }
-
+      
+         // const  getDataNews = async (record) => {
+         //     setLoading(true)
+         //     try {
+         //        const response = await newsApi.getNewsDetail(record)
+         //        if (isOpenModalEdit) {
+         //          setDataNewsModalEdit(getDataNews)
+         //       }
+         //        console.log('dât của dự án', response)
+         //     } catch (error) {
+         //        enqueueSnackbar(error.message, {
+         //           variant: 'error'
+         //        })
+         //     }
+         //     setLoading(false)
+         //  }
+      
+      const openModalEdit = async(record)=>{
+         setLoadingModal(true)
+         setIsOpenModalEdit(true)
+            try {
+               const response = await newsApi.getNewsDetail(record)
+                  setDataNewsModalEdit(response.data)
+               console.log('dât của dự án', response)
+            } catch (error) {
+               enqueueSnackbar(error.message, {
+                  variant: 'error'
+               })
+              
+            }
+         
+            setLoadingModal(false)
+      }
       const handleAddProject = async (data)=>{
          const payload={
             title:data.title,
@@ -129,7 +167,37 @@ function Project(){
             })
          }
       }
-     
+      const handleSubmitEdit = async(data)=>{
+         console.log('data từ form',data)
+         try {
+            const payload={
+               title:data.title,
+                  type:data.type,
+                  city:data.city,
+                  district:data.district,
+                  street:data.street,
+                  price:data.price,
+                  acreage:data.acreage,
+                  bedroom_no:data.bedroom_no,
+                  bathroom_no:data.bathroom_no,
+                  token:tokenUser,
+                  uid:data.uid,
+                  imgs:data.imgs[{}.originFileObj]
+                     
+                  
+            }
+            const response = await newsApi.updateNews(payload)
+            console.log("new edit",response)
+            enqueueSnackbar(response.message,{
+               variant:'success'
+            })
+            history.go(0)
+         } catch (error) {
+            enqueueSnackbar(error.message,{
+               variant:"error"
+            })
+         }
+      }
   useEffect(()=>{
    getNewProject(pagination)
   },[filters, sorter])
@@ -153,6 +221,7 @@ function Project(){
             handleReset={handleReset}
             handleSearch={handleSearch}
             onTableChange={handleTableChange}
+            openModal={openModalEdit}
 
          />
          <AddProjectModal
@@ -160,6 +229,17 @@ function Project(){
             toggle={()=>{setIsOpenModal(!isOpenModal)}}
             onSubmit={handleAddProject}
          />
+         {
+            !loadingModal&&(
+               <FormEditProject
+                  isOpen={isOpenModalEdit}
+                  toggle={()=>{setIsOpenModalEdit(!isOpenModalEdit)}}
+                  dataNews={dataNewsModalEdit}
+                  onSave={handleSubmitEdit}
+                  loading={loadingModal}
+         />
+            )
+         } 
       </div>
    )
 }

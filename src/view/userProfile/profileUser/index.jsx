@@ -24,6 +24,7 @@ function ProfileUser(){
       setLoading(true)
       try {
          const re = await userApi.getProfileUserName(getUidUser.uid)
+         console.log('hahahah',getUidUser.uid)
          setProfile(re.data)
       } catch (error) {
          console.log(error)

@@ -1,0 +1,34 @@
+.label-form{
+   float: left;
+}
+.input-form{
+   border-radius: 8px !important ;
+}
+.col-form{
+   padding-bottom: 20px;
+}
+.contact-btn{
+   border: none;
+   border-radius: 8px;
+   background-color: #fb6b26;
+   width: 70%;
+   height: 40px;
+   align-items: center;
+}
+.page_contact{
+   height: 500px;
+   align-items: center;
+   background-size: cover;
+   background-image: url(../images/img-contact.png);
+   &-left{
+      
+      h3{
+         font-size: 10vh;
+      }
+      p{
+         margin: auto;
+         color: #8d90a6;
+         width: 60%;
+      }
+   }
+}

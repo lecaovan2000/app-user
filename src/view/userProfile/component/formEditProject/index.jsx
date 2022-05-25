@@ -10,9 +10,10 @@ import NumberField from '../../../../component/form-controls/NumberField'
 import FileUploadField from '../../../../component/form-controls/FileUploadField'
 import { utilsToken } from '../../../../utils/token'
 import TextAreaField from '../../../../component/form-controls/TextAreaField'
+import { common } from '../../../../utils/common' 
 
 function FormEditProject(props){
-    const {isOpen,toggle,onSave,dataNews,title} = props
+    const {isOpen,toggle,onSave,dataNews,title,loading} = props
     const tokenUser = utilsToken.getAccessToken()
     console.log("đây là dât",dataNews)
     const schema = yup.object().shape({
@@ -36,23 +37,25 @@ function FormEditProject(props){
       reset,
       formState: { isSubmitting }
    } = form
-   console.log('dataa newner',dataNews)
    useEffect(()=>{
-      reset({
-         title: dataNews.title || '',
-         type: dataNews.type||'',
-         token:tokenUser,
-         city:dataNews.address.city||'',
-         district:dataNews.address.district ||'',
-         street:dataNews.address.street ||'',
-         price:dataNews.price||'',
-         acreage:dataNews.acreage ||'',
-         bedroom_no:dataNews.bedroom_no||'',
-         bathroom_no:dataNews.bathroom_no||'',
-         note:dataNews.note || '',
-         uid:dataNews.uid,
-        //  imgs:dataNews.img_info,
-      })
+    if (!common.checkEmptyObject(dataNews)) {
+        reset({
+            title: dataNews.title || '',
+            type: dataNews.type||'',
+            token:tokenUser,
+            city:dataNews.address.city ||'',
+            district:dataNews.address.district ||'',
+            street:dataNews.address.street ||'',
+            price:dataNews.price||'',
+            acreage:dataNews.acreage ||'',
+            bedroom_no:dataNews.bedroom_no||'',
+            bathroom_no:dataNews.bathroom_no||'',
+            note:dataNews.note || '',
+            uid:dataNews.uid,
+           //  imgs:dataNews.img_info,
+         })
+    }
+      
    },[dataNews])
    
 
@@ -65,13 +68,14 @@ function FormEditProject(props){
 
     return(
        <FormModal
+         isOpen={isOpen}
+         toggle={toggle}
          title={title}
          width={900}
          footerTexts={['Cancel', 'Save']}
-         isOpen={isOpen}
-         toggle={toggle}
          form={form}
          onPrimarySubmit={form.handleSubmit(handleSubmit)}
+         confirmLoading={loading}
        >
           <form>
                 <Row gutter={[24,0]}>

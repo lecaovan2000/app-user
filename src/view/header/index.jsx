@@ -33,7 +33,7 @@ function Header(){
    
    useEffect(()=>{
       getProfileUser()
-   })
+   },[])
    const menu = (
       <Menu style={{display:'inline-grid', width:250, backgroundColor:'transparent'}} >
         <NavLink exact className='menu-response'   to={paths.root}>Trang chủ</NavLink>
