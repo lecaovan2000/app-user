@@ -56,6 +56,7 @@ class SuperTable extends PureComponent {
          components,
          onRow,
          rowClassName,
+         onPaginate
       } = this.props;
       return (
          <div className={`ems-table ${className || ''}`} ref={this.tableRef}>
@@ -82,14 +83,15 @@ class SuperTable extends PureComponent {
                <Pagination
                   // showSizeChanger={false}
                   total={pagination.pageSize}
+                  defaultCurrent={1}
                   // // showTotal={(total, range) => {
                   // //    console.log('page',range)
                   // //    return `${range[0]}-${range[1]} của ${total}`;
                   // // }}
-                  defaultPageSize={pagination.pageSize}
-                  // defaultCurrent={defaultCurrent}
+                  defaultPageSize={10}
                   onChange={this.handleChangePagination}
                   className="ems-pagination"
+                  onPaginate={onPaginate}
                />
             )}
          </div>

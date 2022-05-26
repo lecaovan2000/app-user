@@ -70,7 +70,6 @@ function CardNews(props){
             <Pagination
                   total={pagination.pageSize}
                   showTotal={(total, range) => {
-                     console.log('page',range)
                      return `${range[0]}-${range[1]} của ${total}`
                   }}
                   defaultPageSize={constants.DEFAULT_PAGINATION.pageSize}

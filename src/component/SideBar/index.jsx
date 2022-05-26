@@ -28,7 +28,6 @@ function SideBar(props) {
    const getInfoUser = async()=>{
       try {
          const response = await userApi.getProfileUserName(newInfoUser.uid)
-         console.log("sibar user", response)
          setInfoUser(response.data)
       } catch (error) {
          console.log(error)
