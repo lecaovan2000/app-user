@@ -1,7 +1,6 @@
 const DEFAULT_PAGINATION={
-   total:0,
-   page: 1,
-   page_size: 20
+   pageNo: 1,
+   pageSize: 9
 }
 export const constants = {
    DEFAULT_PAGINATION,

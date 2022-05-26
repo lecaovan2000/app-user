@@ -42,7 +42,8 @@
   width: 100%;
 
   &__content{
-    display: flex;
+   display: flex;
+   justify-content: space-around;
   }
   &__filterError{
     width: 100%;

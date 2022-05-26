@@ -15,22 +15,22 @@ import { common } from '../../../../utils/common'
 function FormEditProject(props){
     const {isOpen,toggle,onSave,dataNews,title,loading} = props
     const tokenUser = utilsToken.getAccessToken()
-    console.log("đây là dât",dataNews)
+    console.log("date getDetailNews:",dataNews)
     const schema = yup.object().shape({
        
      })
      const form = useForm({
-        // title:'',
-        // type:'',
-        // city:'',
-        // district:'',
-        // street:'',
-        // price:'',
-        // acreage:'',
-        // bedroom_no:'',
-        // bathroom_no:'',
-        // token:tokenUser,
-        //  imgs:Fil,
+        title:'',
+        type:'',
+        city:'',
+        district:'',
+        street:'',
+        price:'',
+        acreage:'',
+        bedroom_no:'',
+        bathroom_no:'',
+        token:tokenUser,
+        imgs:'',
         resolver: yupResolver(schema),
      })
      const {
@@ -52,7 +52,15 @@ function FormEditProject(props){
             bathroom_no:dataNews.bathroom_no||'',
             note:dataNews.note || '',
             uid:dataNews.uid,
-           //  imgs:dataNews.img_info,
+            // imgs:()=>{
+            //     const album = []
+            //     if(dataNews.img_info){
+            //         album.push({
+            //             medalist:dataNews.img_info.thumbUrl
+            //         })
+            //     }
+            //     return album
+            // }
          })
     }
       

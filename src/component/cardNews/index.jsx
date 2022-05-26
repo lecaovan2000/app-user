@@ -11,11 +11,18 @@ import IconSquare from '../../assets/icons/IconSquare';
 import { common } from '../../utils/common';
 import { Link } from 'react-router-dom'
 import { Pagination } from 'antd';
+import { constants } from '../../constants/global';
 
 
 function CardNews(props){
-   const{newsData, handleEvent}=props
+   const{newsData, handleEvent, hasPagination,pagination,onPaginate}=props
+    const handleChangePagination = (pageNo, pageSize) => {
+      if (onPaginate) {
+         onPaginate(pageNo, pageSize)
+      }
+   }
    return(
+      <div>
          <div className='box-card'>
          {
            newsData.map && newsData.map((item,key)=>(
@@ -49,13 +56,32 @@ function CardNews(props){
                      <div className='card_content__extentions-icon'>
                         <IconSquare/> <span  className='card_content__extentions-text'>{item.acreage}<sup>m2</sup></span>
                      </div>
-                  </div>         
+                  </div> 
                </div>
             ))
             
          }
-         <Pagination defaultCurrent={1} total={20}/>
+         
+      
       </div>
+      
+      <div>
+         {hasPagination && (
+            <Pagination
+                  total={pagination.pageSize}
+                  showTotal={(total, range) => {
+                     console.log('page',range)
+                     return `${range[0]}-${range[1]} của ${total}`
+                  }}
+                  defaultPageSize={constants.DEFAULT_PAGINATION.pageSize}
+                  defaultCurrent={1}
+                  onChange={handleChangePagination}
+                  onPaginate={onPaginate}
+               />
+            )}
+      </div>
+      </div>
+         
       
    )
 }

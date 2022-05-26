@@ -106,22 +106,6 @@ function Project(){
          }
       }
       
-         // const  getDataNews = async (record) => {
-         //     setLoading(true)
-         //     try {
-         //        const response = await newsApi.getNewsDetail(record)
-         //        if (isOpenModalEdit) {
-         //          setDataNewsModalEdit(getDataNews)
-         //       }
-         //        console.log('dât của dự án', response)
-         //     } catch (error) {
-         //        enqueueSnackbar(error.message, {
-         //           variant: 'error'
-         //        })
-         //     }
-         //     setLoading(false)
-         //  }
-      
       const openModalEdit = async(record)=>{
          setLoadingModal(true)
          setIsOpenModalEdit(true)
@@ -139,6 +123,7 @@ function Project(){
             setLoadingModal(false)
       }
       const handleAddProject = async (data)=>{
+         console.log('meadlist',data)
          const payload={
             title:data.title,
             type:data.type,
@@ -168,7 +153,7 @@ function Project(){
          }
       }
       const handleSubmitEdit = async(data)=>{
-         console.log('data từ form',data)
+         console.log('data formEdit:',data)
          try {
             const payload={
                title:data.title,
@@ -182,16 +167,15 @@ function Project(){
                   bathroom_no:data.bathroom_no,
                   token:tokenUser,
                   uid:data.uid,
-                  imgs:data.imgs[{}.originFileObj]
-                     
-                  
+                  imgs:data.imgs.map((item)=>item.originFileObj)
             }
+            console.log('payload form',payload)
             const response = await newsApi.updateNews(payload)
             console.log("new edit",response)
             enqueueSnackbar(response.message,{
                variant:'success'
             })
-            history.go(0)
+            // history.go(0)
          } catch (error) {
             enqueueSnackbar(error.message,{
                variant:"error"
