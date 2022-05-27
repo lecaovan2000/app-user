@@ -25,6 +25,10 @@ const newsApi = {
 updateNews:(payload)=>{
   const url = "news/update"
     return axiosClient.post(url, common.createFormDataPayload(payload))
+},
+restoreNews:(payload)=>{
+  const url = "news/restore"
+    return axiosClient.post(url,payload)
 }
 };
 export default newsApi;

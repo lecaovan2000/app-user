@@ -27,9 +27,9 @@ function Project(){
    const [isOpenModalEdit,setIsOpenModalEdit]=useState(false)
    const [dataNewsModalEdit,setDataNewsModalEdit]=useState({})
    
-   const [pagination, setPagination] = useState(constants.DEFAULT_PAGINATION)
+   const [pagination, setPagination] = useState(constants.DEFAULT_PAGINATION_TABLE)
   
-      const getNewProject = async(pagination=constants.DEFAULT_PAGINATION)=>{
+      const getNewProject = async(pagination=constants.DEFAULT_PAGINATION_TABLE)=>{
          setLoading(true)
          try {
             

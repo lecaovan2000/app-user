@@ -11,6 +11,7 @@ import { common } from '../../../../utils/common';
 import {tableUtil}from '../../../../utils/table';
 import FormEditProject from '../formEditProject';
 import { useSelector } from 'react-redux';
+import IconSold from '../../../../assets/icons/IconSold';
 function ProjectTable(props){
     const{loading,dataSource,pagination,onPaginate,onTableChange,handleSearch,handleReset,openModal}=props
     const tokenUser = utilsToken.getAccessToken()
@@ -103,13 +104,9 @@ function ProjectTable(props){
                 align: 'center',
                 render: (_, record) => (
                    <Space>
-                      <Button
-                         icon={<EditOutlined />}
-                         onClick={() => {
-                           openModal(record.uid)
-                        }}
-                      />
-                      <Confirm
+                      {
+                         record.status?(
+                           <Confirm
                          className="confirm-modal"
                          onConfirm={async () => {
                              try {
@@ -126,10 +123,43 @@ function ProjectTable(props){
                              }
                          }}
                          placement="bottomRight"
-                         message={`Are you sure to delete ${record.title || 'project'} ?`}
+                         message={`${record.title || 'project'} đã bán  ?`}
                       >
-                         <Button icon={<DeleteOutlined />} />
+                         <Button>Đã bán</Button>
                       </Confirm>
+                         ):(
+                            <Confirm
+                              onClick={
+                                 async () => {
+                                    try {
+                                        const data ={
+                                           uid:`${record.uid}`,
+                                           token:tokenUser
+                                        }
+                                       await newsApi.restoreNews(data)
+                                       history.go(0)
+                                    } catch (error) {
+                                       enqueueSnackbar(error.message, {
+                                           variant: 'error'
+                                        })
+                                    }
+                                }
+                              }
+                              className="confirm-modal"
+                              placement="bottomRight"
+                              message={`Bạn muốn đăng bán ${record.title || 'project'} ?`}
+                            ><Button>Bán</Button>
+                            </Confirm>
+                         )
+                      }
+                      
+                      
+                      <Button
+                         icon={<EditOutlined />}
+                         onClick={() => {
+                           openModal(record.uid)
+                        }}
+                      />
                    </Space>
                 )
              }

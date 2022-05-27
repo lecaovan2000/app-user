@@ -129,7 +129,7 @@ function FormEditProject(props){
                         />
                     </Col>
                 </Row>
-                <Row>
+                {/* <Row>
                     <Col span={18}>
                         <InputField
                             size="large"
@@ -152,7 +152,7 @@ function FormEditProject(props){
                             disabled={true}
                         />
                     </Col>
-                </Row>
+                </Row> */}
                 <Row  gutter={[24,0]}>
                     <Col span={6}>
                         <InputField
