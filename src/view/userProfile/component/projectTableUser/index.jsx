@@ -123,7 +123,7 @@ function ProjectTable(props){
                              }
                          }}
                          placement="bottomRight"
-                         message={`${record.title || 'project'} đã bán  ?`}
+                         message={`${record.title || 'project'} đã được bán ?`}
                       >
                          <Button>Đã bán</Button>
                       </Confirm>
