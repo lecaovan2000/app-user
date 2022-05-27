@@ -1,6 +1,7 @@
 import { Pagination, Table } from 'antd';
 import React, { PureComponent } from 'react';
 import { withRouter } from 'react-router-dom';
+import { constants } from '../../constants/global';
 
 class SuperTable extends PureComponent {
    tableRef = React.createRef(null);
@@ -32,11 +33,11 @@ class SuperTable extends PureComponent {
 
    handleChangePagination = (pageNo, pageSize) => {
       if (this.props.onPaginate) {
-         window.scrollTo({
-            top: this.tableRef.current.offsetTop - 128,
-            left: 0,
-            behavior: 'smooth',
-         });
+         // window.scrollTo({
+         //    top: this.tableRef.current.offsetTop - 128,
+         //    left: 0,
+         //    behavior: 'smooth',
+         // });
          this.props.onPaginate(pageNo, pageSize);
       }
    };
@@ -81,14 +82,10 @@ class SuperTable extends PureComponent {
             />
             {hasPagination && (
                <Pagination
-                  // showSizeChanger={false}
+                  showSizeChanger={false}
                   total={pagination.pageSize}
-                  defaultCurrent={1}
-                  // // showTotal={(total, range) => {
-                  // //    console.log('page',range)
-                  // //    return `${range[0]}-${range[1]} của ${total}`;
-                  // // }}
-                  defaultPageSize={10}
+                  defaultCurrent={'1'}
+                  defaultPageSize={constants.DEFAULT_PAGINATION_TABLE.pageSize}
                   onChange={this.handleChangePagination}
                   className="ems-pagination"
                   onPaginate={onPaginate}

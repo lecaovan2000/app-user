@@ -115,19 +115,6 @@ function AddProjectModal(props){
                         />
                     </Col>
                 </Row>
-                <Row>
-                    <Col span={24}>
-                        <InputField
-                            size="large"
-                            name="token"
-                            form={form}
-                            placeholder="Uid token"
-                            label="Uid token"
-                            labelCol={{ span: 24 }}
-                            disabled={true}
-                        />
-                    </Col>
-                </Row>
                 <Row  gutter={[24,0]}>
                     <Col span={6}>
                         <InputField

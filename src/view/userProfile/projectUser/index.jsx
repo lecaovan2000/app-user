@@ -11,6 +11,7 @@ import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
 import IconBack from '../../../assets/icons/IconBack';
 import FormEditProject from '../component/formEditProject';
 import { useParams } from 'react-router'
+import { constants } from '../../../constants/global';
 
 
 function Project(){
@@ -26,27 +27,21 @@ function Project(){
    const [isOpenModalEdit,setIsOpenModalEdit]=useState(false)
    const [dataNewsModalEdit,setDataNewsModalEdit]=useState({})
    
-   
-   const default_pagination ={
-      pageNo: 1,
-      page_size:10
-   }
-   const [pagination, setPagination] = useState(default_pagination)
+   const [pagination, setPagination] = useState(constants.DEFAULT_PAGINATION)
   
-      const getNewProject = async(pagination=default_pagination)=>{
+      const getNewProject = async(pagination=constants.DEFAULT_PAGINATION)=>{
          setLoading(true)
          try {
             
             const payload={
                page: pagination.pageNo,
-               // page_size: pagination.pageSize,
+               page_size: pagination.pageSize,
                token:tokenUser,
             }
             const res = await newsApi.getNewsByUser(payload)
-            // console.log('page size',res)
             setDataSource(res.data)
             setPagination({
-               // pageNo: res.total_page,
+               pageNo: res.total_page,
                pageSize:res.total
             })
          } catch (error) {
@@ -167,7 +162,6 @@ function Project(){
                   bathroom_no:data.bathroom_no,
                   token:tokenUser,
                   uid:data.uid,
-                  // imgs:data.imgs.map((item)=>item.originFileObj)
                   imgs:()=>{
                      const newImg = data
                      if ( newImg.imgs= undefined) {
