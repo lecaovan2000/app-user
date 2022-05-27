@@ -167,7 +167,14 @@ function Project(){
                   bathroom_no:data.bathroom_no,
                   token:tokenUser,
                   uid:data.uid,
-                  imgs:data.imgs.map((item)=>item.originFileObj)
+                  // imgs:data.imgs.map((item)=>item.originFileObj)
+                  imgs:()=>{
+                     const newImg = data
+                     if ( newImg.imgs= undefined) {
+                        return newImg.img_info
+                     }
+                     return newImg.imgs.map((item)=>item.originFileObj)
+                  }
             }
             console.log('payload form',payload)
             const response = await newsApi.updateNews(payload)
@@ -175,7 +182,7 @@ function Project(){
             enqueueSnackbar(response.message,{
                variant:'success'
             })
-            // history.go(0)
+            history.go(0)
          } catch (error) {
             enqueueSnackbar(error.message,{
                variant:"error"
