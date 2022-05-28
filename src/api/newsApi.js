@@ -20,7 +20,9 @@ const newsApi = {
  },
  addProject: payload => {
   const url = 'news/create'
-  return axiosClient.post(url, common.createFormDataPayload(payload))
+  return axiosClient.post(url, common.createFormDataPayload(payload),{
+    header: { "Content-Type": "multipart/form-data"}
+  })
 },
 updateNews:(payload)=>{
   const url = "news/update"

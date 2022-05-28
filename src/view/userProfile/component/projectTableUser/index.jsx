@@ -107,21 +107,21 @@ function ProjectTable(props){
                       {
                          record.status?(
                            <Confirm
-                         className="confirm-modal"
-                         onConfirm={async () => {
-                             try {
-                                 const data ={
-                                    uid:`${record.uid}`,
-                                    token:tokenUser
-                                 }
-                                await newsApi.deleteNews(data)
-                                history.go(0)
-                             } catch (error) {
-                                enqueueSnackbar(error.message, {
-                                    variant: 'error'
-                                 })
-                             }
-                         }}
+                              className="confirm-modal"
+                              onConfirm={async () => {
+                                    try {
+                                          const data ={
+                                             uid:`${record.uid}`,
+                                             token:tokenUser
+                                          }
+                                       await newsApi.deleteNews(data)
+                                       history.go(0)
+                                    } catch (error) {
+                                       enqueueSnackbar(error.message, {
+                                             variant: 'error'
+                                          })
+                                    }
+                                 }}
                          placement="bottomRight"
                          message={`${record.title || 'project'} đã được bán ?`}
                       >
@@ -129,7 +129,7 @@ function ProjectTable(props){
                       </Confirm>
                          ):(
                             <Confirm
-                              onClick={
+                               onConfirm={
                                  async () => {
                                     try {
                                         const data ={

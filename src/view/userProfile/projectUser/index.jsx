@@ -118,7 +118,7 @@ function Project(){
             setLoadingModal(false)
       }
       const handleAddProject = async (data)=>{
-         console.log('meadlist',data)
+         console.log('dataa',data)
          const payload={
             title:data.title,
             type:data.type,
@@ -131,13 +131,20 @@ function Project(){
             bathroom_no:data.bathroom_no,
             token:tokenUser,
             note:data.note,
-            imgs:data.imgs[0].originFileObj
+            imgs:data.imgs.map((item)=>item)
+            // imgs:(()=>{
+            //    const files = [];
+            //    for(let i = 0; i < data.imgs.length; i++) {
+            //      files.push(data.imgs[i])
+            //    }
+            //    return files
+            //  })()
          }
          
          try {
             const response = await newsApi.addProject(payload)
             setIsOpenModal(false)
-            history.go(0)
+            // history.go(0)
             enqueueSnackbar(response.message, {
                variant: 'success'
             })

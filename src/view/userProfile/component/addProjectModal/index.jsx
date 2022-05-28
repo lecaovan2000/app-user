@@ -42,7 +42,7 @@ function AddProjectModal(props){
         },
         resolver: yupResolver(schema),
      })
-
+     const { register} = form
      const handleSubmit = async values => {
         Modal.confirm({
            title: `Are you sure to do add this project?`,
@@ -206,13 +206,14 @@ function AddProjectModal(props){
                 </Row>
                 <Row>
                     <Col>
-                            <FileUploadField
+                    <input type='file' multiple {...register("imgs")} />
+                            {/* <FileUploadField
                                  name="imgs"
                                  form={form}
                                  maxItem={8}
                                  labelCol={{ span: 24 }}
                                  label="Hình ảnh"  
-                            />
+                            /> */}
                     </Col>
                 </Row>
             </form>
