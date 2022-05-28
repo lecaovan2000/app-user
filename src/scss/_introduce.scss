@@ -6,10 +6,9 @@
    display: flex
 }
 .text_introduce{
-   float: left;
-   display: flex;
-   margin-left: none;
-   // word-break: break-word;
-   writing-mode:sideways-rl;
+   font-size: 18px;
    text-align: left;
+   font-weight: 400;
+   text-align: justify;
+   color: rgb(67, 66, 66);
 }

@@ -52,9 +52,12 @@ function NewsLatest(){
                 />
             </div>            
          </div>
+
+         <div style={{width:'100%', backgroundColor:'#efefef'}} >
             <NewsList 
-                  selectedOrgan={selected}
-            />       
+               selectedOrgan={selected}
+            /> 
+         </div>
       </div>
    )
 }

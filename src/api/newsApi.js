@@ -29,6 +29,11 @@ updateNews:(payload)=>{
 restoreNews:(payload)=>{
   const url = "news/restore"
     return axiosClient.post(url,payload)
-}
+},
+getAllNewspaper:(payload)=>{
+  const url = "newspaper/"
+    return axiosClient.post(url,payload)
+},
+
 };
 export default newsApi;

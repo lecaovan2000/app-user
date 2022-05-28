@@ -1,9 +1,11 @@
 .newsLatest {
   margin: auto;
-  width: 80%;
+  width: 100%;
   height: auto;
-
+  
   &__title {
+    margin: auto;
+    width: 80%;
     display: flex;
     justify-content: space-between;
     padding-top: 5%;
