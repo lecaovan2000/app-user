@@ -131,10 +131,10 @@ function Project(){
             bathroom_no:data.bathroom_no,
             token:tokenUser,
             note:data.note,
-            imgs:data.imgs.map((item)=>item)
+            imgs:data.imgs[0].originFileObj
             // imgs:(()=>{
             //    const files = [];
-            //    for(let i = 0; i < data.imgs.length; i++) {
+            //    for(let i = 0; i < data.imgs; i++) {
             //      files.push(data.imgs[i])
             //    }
             //    return files
@@ -144,7 +144,7 @@ function Project(){
          try {
             const response = await newsApi.addProject(payload)
             setIsOpenModal(false)
-            // history.go(0)
+            history.go(0)
             enqueueSnackbar(response.message, {
                variant: 'success'
             })

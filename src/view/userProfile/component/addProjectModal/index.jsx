@@ -206,14 +206,14 @@ function AddProjectModal(props){
                 </Row>
                 <Row>
                     <Col>
-                    <input type='file' multiple {...register("imgs")} />
-                            {/* <FileUploadField
+                    {/* <input type='file' multiple {...register("imgs")} /> */}
+                            <FileUploadField
                                  name="imgs"
                                  form={form}
                                  maxItem={8}
                                  labelCol={{ span: 24 }}
                                  label="Hình ảnh"  
-                            /> */}
+                            />
                     </Col>
                 </Row>
             </form>
