@@ -26,6 +26,9 @@ function ProjectTable(props){
                 width:300,
                 ...tableUtil.GetColumnSearchProps('title', handleSearch, handleReset),
                 with:300,
+                sorter: {
+                  multiple: 1
+               },
                 render: (_, record) => (
                     <>
                        <Avatar

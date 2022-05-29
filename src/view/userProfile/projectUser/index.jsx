@@ -52,9 +52,7 @@ function Project(){
       const handleChangePagination = (pageNo, pageSize) => {
          getNewProject({ pageNo, pageSize })
       }
-      const handleSearch = ( confirm, dataIndex) => {
-         confirm()
-      }
+      
       const handleReset = (clearFilters, dataIndex) => {
          clearFilters()
    
@@ -62,6 +60,7 @@ function Project(){
          delete newFilters[dataIndex]
          setFilters(newFilters)
       }
+      const handleSearchUser = (selectedKeys, confirm, dataIndex) =>confirm()
       const handleChangeFilters = newFilters => {
          setPagination({
             ...pagination,
@@ -212,7 +211,7 @@ function Project(){
             pagination={pagination}
             onPaginate={handleChangePagination}
             handleReset={handleReset}
-            handleSearch={handleSearch}
+            handleSearch={handleSearchUser}
             onTableChange={handleTableChange}
             openModal={openModalEdit}
 
