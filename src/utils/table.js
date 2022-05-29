@@ -30,7 +30,7 @@ const GetColumnSearchProps = (dataIndex, handleSearch, handleReset) => {
                <Button
                   type="primary"
                   onClick={() =>
-                     handleSearch(selectedKeys, confirm, dataIndex)
+                     handleSearch(selectedKeys, confirm, dataIndex)  
                   }
                   icon={<SearchOutlined />}
                   size="small"

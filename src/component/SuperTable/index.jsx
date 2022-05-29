@@ -22,14 +22,9 @@ class SuperTable extends PureComponent {
 
    onChange = (pagination, filters, sorter, extra) => {
       if (this.props.onChange) {
-         this.props.onChange(
-            pagination,
-            filters,
-            sorter,
-            extra
-         );
+         this.props.onChange(pagination, filters, sorter, extra)
       }
-   };
+   }
 
    handleChangePagination = (pageNo, pageSize) => {
       if (this.props.onPaginate) {

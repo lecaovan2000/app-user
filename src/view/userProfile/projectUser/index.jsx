@@ -52,6 +52,7 @@ function Project(){
       const handleChangePagination = (pageNo, pageSize) => {
          getNewProject({ pageNo, pageSize })
       }
+      const handleSearchUser = (selectedKeys, confirm, dataIndex) =>confirm()
       
       const handleReset = (clearFilters, dataIndex) => {
          clearFilters()
@@ -60,7 +61,8 @@ function Project(){
          delete newFilters[dataIndex]
          setFilters(newFilters)
       }
-      const handleSearchUser = (selectedKeys, confirm, dataIndex) =>confirm()
+
+     
       const handleChangeFilters = newFilters => {
          setPagination({
             ...pagination,
@@ -74,6 +76,7 @@ function Project(){
          })
       }
       const handleChangeSorter = newSorter => {
+         console.log('click rott', newSorter)
          if (!Array.isArray(newSorter)) {
             newSorter.order
                ? setSorter({
@@ -90,15 +93,7 @@ function Project(){
             setSorter(sorter)
          }
       }
-      const handleTableChange = (pagination, filters, sorter, extra) => {
-         console.log('dayle')
-   
-         if (extra.action === 'filter') {
-            handleChangeFilters(filters)
-         } else if (extra.action === 'sort') {
-            handleChangeSorter(sorter)
-         }
-      }
+      
       
       const openModalEdit = async(record)=>{
          setLoadingModal(true)
@@ -188,6 +183,13 @@ function Project(){
             enqueueSnackbar(error.message,{
                variant:"error"
             })
+         }
+      }
+      const handleTableChange = (pagination, filters, sorter, extra) => {
+         if (extra.action === 'filter') {
+            handleChangeFilters(filters)
+         } else if (extra.action === 'sort') {
+            handleChangeSorter(sorter)
          }
       }
   useEffect(()=>{

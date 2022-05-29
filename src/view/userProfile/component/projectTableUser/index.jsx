@@ -74,6 +74,7 @@ function ProjectTable(props){
                      value: false
                   }
                ],
+                  filterMultiple: false,
                 render:(_, record)=>{
                   return record.status ? 
                   (<div className='status_sale'>đang bán</div>):(<div className='status_sold'>đã bán</div>)
@@ -172,6 +173,7 @@ function ProjectTable(props){
         
         <div>
            <SuperTable 
+            rowKey="uid"
             columns={columns}
             submitting={loading}
             hasPagination={true}
