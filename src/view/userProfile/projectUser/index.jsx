@@ -169,13 +169,14 @@ function Project(){
                   bathroom_no:data.bathroom_no,
                   token:tokenUser,
                   uid:data.uid,
-                  imgs:()=>{
-                     const newImg = data
-                     if ( newImg.imgs= undefined) {
-                        return newImg.img_info
-                     }
-                     return newImg.imgs.map((item)=>item.originFileObj)
-                  }
+                  imgs:data.imgs[0].originFileObj
+                  // imgs:()=>{
+                  //    const newImg = data
+                  //    if ( newImg.imgs= undefined) {
+                  //       return newImg.img_info
+                  //    }
+                  //    return newImg.imgs[0].originFileObj
+                  // }
             }
             console.log('payload form',payload)
             const response = await newsApi.updateNews(payload)
