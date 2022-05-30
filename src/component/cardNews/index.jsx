@@ -69,9 +69,9 @@ function CardNews(props){
          {hasPagination && (
             <Pagination
                   total={pagination.pageSize}
-                  showTotal={(total, range) => {
-                     return `${range[0]}-${range[1]} của ${total}`
-                  }}
+                  // showTotal={(total, range) => {
+                  //    return `${range[0]}-${range[1]} của ${total}`
+                  // }}
                   defaultPageSize={constants.DEFAULT_PAGINATION.pageSize}
                   defaultCurrent={1}
                   onChange={handleChangePagination}
