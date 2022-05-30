@@ -15,8 +15,9 @@ const authApi = {
       return axiosClient.post(url,data)
    },
 
-   getAllUser:()=>{
-
+   checkToken:(data)=>{
+      const url='tokens/check_token'
+      return axiosClient.post(url,data)
    }
    
 }

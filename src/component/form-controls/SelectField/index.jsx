@@ -19,7 +19,6 @@ SelectField.propTypes = {
 function SelectField(props) {
    const { form, name, label, labelCol, className, disabled, mode, options, ...restProps } = props
    const { control } = form
-   console.log('options', options)
 
    return (
       <Form.Item

@@ -28,7 +28,7 @@ function NewsList(props){
             }
          setLoading(true)
          const response = await newsApi.getAllNews(payload)
-         console.log('all new', response)
+         // console.log('all new', response)
          setDataNews(response.data)
          setPagination({
             pageNo:response.total_page,
@@ -58,7 +58,7 @@ function NewsList(props){
     
    //  const _data=newData
    const handleSearch = async _data => {
-      console.log('search', _data)
+      // console.log('search', _data)
       setSearch(_data.status)
    }
    return(

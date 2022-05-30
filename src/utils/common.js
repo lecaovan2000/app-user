@@ -13,6 +13,7 @@ const createFormDataPayload = data => {
 }
 const removeBearerToken = () => {
    localStorage.removeItem(StorageKeys.ACCESS_TOKEN)
+   localStorage.removeItem(StorageKeys.USER)
 }
 
 const removeCurrentUser = () => {

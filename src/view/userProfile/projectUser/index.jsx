@@ -12,6 +12,8 @@ import IconBack from '../../../assets/icons/IconBack';
 import FormEditProject from '../component/formEditProject';
 import { useParams } from 'react-router'
 import { constants } from '../../../constants/global';
+import { common } from '../../../utils/common';
+import { paths } from '../../../constants/paths';
 
 
 function Project(){
@@ -45,7 +47,9 @@ function Project(){
                pageSize:res.total
             })
          } catch (error) {
-            console.log(error)
+            utilsToken.checkExpiredToken(error)
+            common.removeBearerToken()
+            history.push(paths.root)
          }
          setLoading(false)
       }
@@ -76,7 +80,7 @@ function Project(){
          })
       }
       const handleChangeSorter = newSorter => {
-         console.log('click rott', newSorter)
+         // console.log('click rott', newSorter)
          if (!Array.isArray(newSorter)) {
             newSorter.order
                ? setSorter({
@@ -101,7 +105,7 @@ function Project(){
             try {
                const response = await newsApi.getNewsDetail(record)
                   setDataNewsModalEdit(response.data)
-               console.log('dât của dự án', response)
+               // console.log('dât của dự án', response)
             } catch (error) {
                enqueueSnackbar(error.message, {
                   variant: 'error'
@@ -112,7 +116,7 @@ function Project(){
             setLoadingModal(false)
       }
       const handleAddProject = async (data)=>{
-         console.log('dataa',data)
+         // console.log('dataa',data)
          const payload={
             title:data.title,
             type:data.type,
@@ -149,7 +153,7 @@ function Project(){
          }
       }
       const handleSubmitEdit = async(data)=>{
-         console.log('data formEdit:',data)
+         // console.log('data formEdit:',data)
          try {
             const payload={
                title:data.title,
@@ -163,18 +167,18 @@ function Project(){
                   bathroom_no:data.bathroom_no,
                   token:tokenUser,
                   uid:data.uid,
-                  imgs:data.imgs[0].originFileObj
-                  // imgs:()=>{
-                  //    const newImg = data
-                  //    if ( newImg.imgs= undefined) {
-                  //       return newImg.img_info
-                  //    }
-                  //    return newImg.imgs[0].originFileObj
-                  // }
+                  // imgs:data.imgs[0].originFileObj
+                  imgs:()=>{
+                     const newImg = data
+                     if ( newImg.imgs=== undefined) {
+                        return newImg.img_info
+                     }
+                     return newImg.imgs[0].originFileObj
+                  }
             }
-            console.log('payload form',payload)
+            // console.log('payload form',payload)
             const response = await newsApi.updateNews(payload)
-            console.log("new edit",response)
+            // console.log("new edit",response)
             enqueueSnackbar(response.message,{
                variant:'success'
             })

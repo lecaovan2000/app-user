@@ -10,15 +10,18 @@ import { unwrapResult } from '@reduxjs/toolkit';
 import {paths} from '../../constants/paths'
 import userApi from '../../api/userApi';
 import logo from '../../images/logovvv.png'
+import { common } from '../../utils/common';
+import authApi from '../../api/authApi';
 
 function Header(){
    const Token = utilsToken.getAccessToken()
    const InfoUser = utilsToken.getAccessUser()
+   const [isCheckToken, setCheckToken]=useState({})
    const [profileUser, setProfileUser]=useState({})
    const NewInfoUser = JSON.parse(InfoUser)
    const dispatch = useDispatch()
    const history = useHistory()
-   const [visible, SetVisible]=useState()
+
    const getProfile=async()=>{
       await history.push(paths.profileUser)
    }
@@ -27,20 +30,22 @@ function Header(){
          const response = await userApi.getProfileUserName(NewInfoUser.uid)
          setProfileUser(response.data)
       } catch (error) {
-         console.log(error)
+         // console.log(error)
+         
       }
    }
-   
    useEffect(()=>{
       getProfileUser()
    },[])
+
    const menu = (
       <Menu style={{display:'inline-grid', width:250, backgroundColor:'transparent'}} >
         <NavLink exact className='menu-response'   to={paths.root}>Trang chủ</NavLink>
         <NavLink className='menu-response'  to={paths.raotin}>Rao tin</NavLink>
         <NavLink className='menu-response'  to = 'news'>Tin tức</NavLink>
-        <NavLink className='menu-response'  to='/login'>Giới thiệu</NavLink>
-        <NavLink className='menu-response'  to='/login'>Liên hệ</NavLink>
+        <NavLink className='menu-response'  to='/introduce'>Giới thiệu</NavLink>
+        <NavLink className='menu-response'  to='/contact'>Liên hệ</NavLink>
+        <NavLink className='menu-response'  to='/login'>Login</NavLink>
       </Menu>
     );
    return(
@@ -107,7 +112,8 @@ function Header(){
                
                </div>)
             : 
-            (<NavLink to='login'>
+            (common.removeBearerToken(),
+            <NavLink to='login'>
                <UserOutlined style={{ color:'white'}} className='header-login-icon' />
                 <span className='header-login-text'>Đăng nhập</span>
             </NavLink>) }

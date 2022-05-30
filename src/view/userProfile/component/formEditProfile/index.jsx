@@ -13,6 +13,7 @@ function FormEditProfile(props){
     const {isOpen,toggle,onSave,dataProfile} = props
     const tokenUser = utilsToken.getAccessToken()
     const schema = yup.object().shape({
+       phone:yup.number()
        
      })
      const form = useForm({
@@ -38,7 +39,7 @@ function FormEditProfile(props){
    
 
    const handleSubmit = async data => {
-      console.log(isSubmitting)
+      // console.log(isSubmitting)
       if (onSave) {
          await onSave(data)
       }

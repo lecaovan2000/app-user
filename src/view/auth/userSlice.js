@@ -5,7 +5,7 @@ import StorageKeys from "../../constants/storage-keys";
 // createAsyncThunk cái này sử dụng cho login và register
 export const register = createAsyncThunk("user/register", async (payload) => {
   const res = await authApi.register(payload);
-  console.log(res);
+  // console.log(res);
   localStorage.setItem(StorageKeys.ACCESS_TOKEN, res.token);
   localStorage.setItem(StorageKeys.USER, JSON.stringify(res.user));
   return res.user;

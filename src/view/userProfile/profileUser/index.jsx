@@ -8,6 +8,8 @@ import FormEditProfile from '../component/formEditProfile';
 import { useSnackbar } from 'notistack'
 import { useHistory } from 'react-router-dom';
 import IconBack from '../../../assets/icons/IconBack';
+import { common } from '../../../utils/common';
+import { paths } from '../../../constants/paths';
 
 
 function ProfileUser(){
@@ -24,10 +26,10 @@ function ProfileUser(){
       setLoading(true)
       try {
          const re = await userApi.getProfileUserName(getUidUser.uid)
-         console.log('hahahah',getUidUser.uid)
+         // console.log('hahahah',getUidUser.uid)
          setProfile(re.data)
       } catch (error) {
-         console.log(error)
+         // console.log(error)
       }
       setLoading(false)
    }
@@ -50,9 +52,10 @@ function ProfileUser(){
          setIsOpenModal(false)
          history.go(0)
       } catch (error) {
-         enqueueSnackbar(error.message, {
-            variant: 'error'
-         })
+         // console.log(error)
+         utilsToken.checkExpiredToken(error)
+         common.removeBearerToken()
+         history.push(paths.root)
       }
     }
    return(

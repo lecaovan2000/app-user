@@ -6,12 +6,15 @@ import PropTypes from 'prop-types';
 import { register } from '../userSlice.js';
 import { useDispatch } from 'react-redux';
 import registerImg from '../../../images/bgr_register.jpg'
+import IconBack from '../../../assets/icons/IconBack.js';
+import { useHistory } from 'react-router-dom';
 Register.propTypes = {
    closeDialog: PropTypes.func
 };
 function Register(props){
    const MessageSuccess={variant:'success', message:'Success'}
    const dispatch = useDispatch();
+   const history=useHistory()
    const { enqueueSnackbar } = useSnackbar();
    const handleSubmit = async (values) => {
       try {
@@ -31,7 +34,8 @@ function Register(props){
    return(
       <div className='register'>
          <div className='register-content'>
-            <div className='register-content-left'> 
+            <div className='register-content-left'>
+               <button onClick={()=>history.goBack()} className='register-content-left-back' > <IconBack/> back</button>
                <img className='register-content-left__img' src={registerImg}/>
             </div>
             <div className='register-content__right'>

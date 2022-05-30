@@ -59,9 +59,8 @@ function RaoTin(){
 
          </div>)
          :
-         (<div>
-            <span><h2><span><NavLink to={'/login'}>Đăng nhập</NavLink></span> để đăng tin </h2></span> 
-            
+         (<div className='box-collections'>
+            <div className='box-collections_login'  ><h2><NavLink style={{color:'rgb(239, 84, 84)'}} to={'/login'}>Đăng nhập</NavLink> để đăng tin </h2></div> 
          </div>)
          }
          </div>

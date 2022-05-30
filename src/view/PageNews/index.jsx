@@ -14,7 +14,7 @@ function PageNews(){
          const response = await newsApi.getAllNewspaper()
          setNewspaper(response.data)
       } catch (error) {
-         console.log('err',error)
+         // console.log('err',error)
       }
       setLoading(false)
    }

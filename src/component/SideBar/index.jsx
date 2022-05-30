@@ -24,13 +24,13 @@ function SideBar(props) {
    const newInfoUser = JSON.parse(inforUser)
    const [infoUser, setInfoUser]=useState({})
    const tokenUser = utilsToken.getAccessToken()
-   console.log(tokenUser)
+   // console.log(tokenUser)
    const getInfoUser = async()=>{
       try {
          const response = await userApi.getProfileUserName(newInfoUser.uid)
          setInfoUser(response.data)
       } catch (error) {
-         console.log(error)
+         // console.log(error)
       }
    }
    useEffect(()=>{

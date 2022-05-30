@@ -45,7 +45,7 @@ function FormContact(props){
          body: JSON.stringify(formData),
       })
          .then((data) => {
-            console.log(data);
+            // console.log(data);
 
             props.enqueueSnackbar('Gửi email thành công! Chúng tôi sẽ liên hệ với bạn sớm nhất.', {
                variant: "success"
@@ -57,7 +57,7 @@ function FormContact(props){
             props.enqueueSnackbar('Gửi email lỗi! Try again later.', {
                variant: "error"
             })
-            console.log(error);
+            // console.log(error);
             setLoading(false);
          });
    };

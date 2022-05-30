@@ -30,6 +30,7 @@ function InputField(props){
             name={name}
             control={control}
             render={({field,fieldState:{invalid,error}})=>{
+               // console.log('form err', error)
                return(
                   <div className='input-item'>
                      <Input 

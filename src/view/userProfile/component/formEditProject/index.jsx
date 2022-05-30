@@ -15,8 +15,14 @@ import { common } from '../../../../utils/common'
 function FormEditProject(props){
     const {isOpen,toggle,onSave,dataNews,title,loading} = props
     const tokenUser = utilsToken.getAccessToken()
-    console.log("date getDetailNews:",dataNews)
+    // console.log("date getDetailNews:",dataNews)
     const schema = yup.object().shape({
+        city:yup.string(),
+        district:yup.string(),
+        price:yup.number(),
+        acreage:yup.number(),
+        bedroom_no:yup.number(),
+        bathroom_no:yup.number(),
        
      })
      const form = useForm({
@@ -68,7 +74,7 @@ function FormEditProject(props){
    
 
    const handleSubmit = async data => {
-      console.log(isSubmitting)
+    //   console.log(isSubmitting)
       if (onSave) {
          await onSave(data)
       }
@@ -129,30 +135,6 @@ function FormEditProject(props){
                         />
                     </Col>
                 </Row>
-                {/* <Row>
-                    <Col span={18}>
-                        <InputField
-                            size="large"
-                            name="token"
-                            form={form}
-                            placeholder="Uid token"
-                            label="Uid token"
-                            labelCol={{ span: 24 }}
-                            disabled={true}
-                        />
-                    </Col>
-                    <Col span={6}>
-                        <InputField
-                            size="large"
-                            name="uid"
-                            form={form}
-                            placeholder="Uid "
-                            label="Uid"
-                            labelCol={{ span: 24 }}
-                            disabled={true}
-                        />
-                    </Col>
-                </Row> */}
                 <Row  gutter={[24,0]}>
                     <Col span={6}>
                         <InputField

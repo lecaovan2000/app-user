@@ -11,7 +11,7 @@ import img3 from '../../../../images/toan-canh-bat-dong-san-nha-trang-1625440231
 import 'react-responsive-carousel/lib/styles/carousel.min.css' ;
 function NewsDetailForm(props){
    const {data, loading} = props
-   console.log('datadetail',data)
+   // console.log('datadetail',data)
    const history=useHistory()
    // const routes =[
    //    {

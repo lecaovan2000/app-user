@@ -23,6 +23,7 @@ function AddProjectModal(props){
         acreage:yup.number(),
         bedroom_no:yup.number(),
         bathroom_no:yup.number(),
+        imgs:yup.array().label('Images').required('Hình ảnh không được để trống')
      })
      const form = useForm({
         defaultValues: {

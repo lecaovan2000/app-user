@@ -4,7 +4,7 @@ import React from 'react'
 import { paths } from "./constants/paths";
 import BodyContent from "./view/bodyContent";
 import Footer from "./view/footer";
-import Header from "./view/header";
+// import Header from "./view/header";
 function App() {
   return (
     <div className="App">
