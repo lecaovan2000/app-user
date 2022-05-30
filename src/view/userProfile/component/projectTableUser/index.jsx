@@ -129,7 +129,7 @@ function ProjectTable(props){
                          placement="bottomRight"
                          message={`${record.title || 'project'} đã được bán ?`}
                       >
-                         <Button style={{ backgroundColor:'#6cc546', color:'white', border:'8px' }} >Đã bán</Button>
+                         <Button style={{ backgroundColor:'#6cc546', color:'white', border:'8px' }} >Bán</Button>
                       </Confirm>
                          ):(
                             <Confirm
@@ -152,7 +152,7 @@ function ProjectTable(props){
                               className="confirm-modal"
                               placement="bottomRight"
                               message={`Bạn muốn đăng bán ${record.title || 'project'} ?`}
-                            ><Button style={{ backgroundColor:'red', color:'white',border:'8px' }} >Bán</Button>
+                            ><Button style={{ backgroundColor:'red', color:'white',border:'8px' }} >Đã bán</Button>
                             </Confirm>
                          )
                       }
