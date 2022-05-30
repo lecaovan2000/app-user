@@ -19,6 +19,7 @@ SelectField.propTypes = {
 function SelectField(props) {
    const { form, name, label, labelCol, className, disabled, mode, options, ...restProps } = props
    const { control } = form
+   console.log('options', options)
 
    return (
       <Form.Item
@@ -36,7 +37,8 @@ function SelectField(props) {
                   <div className="input-item">
                      <Select
                         {...field}
-                        defaultValue={field.value}
+                        // defaultValue={field.value}
+                        defaultValue={options[0].value}
                         mode={mode}
                         allowClear
                         disabled={disabled}

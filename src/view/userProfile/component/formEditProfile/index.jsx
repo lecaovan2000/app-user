@@ -32,8 +32,7 @@ function FormEditProfile(props){
          fullname: dataProfile.fullname || '',
          phone:dataProfile.phone ||'',
          gender:dataProfile.gender||'',
-         avatar:dataProfile.avatar||'',
-         token:tokenUser,
+         avatar:dataProfile.avatar||''
       })
    },[dataProfile])
    
@@ -72,19 +71,6 @@ function FormEditProfile(props){
                </Col>
 
                <Col span={12}>
-               <Row>
-                    <Col span={24}>
-                        <InputField
-                            size="large"
-                            name="token"
-                            form={form}
-                            placeholder="Uid token"
-                            label="Uid token"
-                            labelCol={{ span: 24 }}
-                            disabled={true}
-                        />
-                    </Col>
-                </Row>
                   <Row>
                      <Col span={12}>
                         <InputField

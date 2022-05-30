@@ -5,7 +5,7 @@ class Path{
       this.login = '/login'
       this.register = '/login/register'
       this.update ='/profile/update'
-      this.userProject ='/profile/Project'
+      this.userProject ='/profile/project'
       this.userprofile = '/profile'
       this.raotin = '/collections'
       this.pagenews = '/news'
