@@ -11,6 +11,36 @@ const createFormDataPayload = data => {
    }
    return formData
 }
+
+
+const createFormDataImg = data => {
+   const formData = new FormData()
+   
+   if (Object.keys(data).length > 0) {
+      
+      Object.keys(data).forEach(key => {
+         if (data[key] !== null && data[key] !== undefined) {
+            formData.append(key, data[key])
+         }
+      })
+
+      // const newData =  Object.keys(data).slice(0,Object.keys(data).length -1)
+      // console.log('data[key]',newData)
+      // const ojectImg =[]
+      // console.log("ojectImg",ojectImg)
+      // data['imgs'].forEach((img)=>{
+      //    ojectImg.push(img)
+      // })
+      // const ojectItem =[]
+      // console.log("ojectImg",ojectItem)
+      // newData.forEach(key => {
+      //    ojectItem.push(key)
+         
+      // })
+   }
+   console.log("ojectImg",formData)
+   return formData
+}
 const removeBearerToken = () => {
    localStorage.removeItem(StorageKeys.ACCESS_TOKEN)
    localStorage.removeItem(StorageKeys.USER)
@@ -36,6 +66,17 @@ const checkEmptyObject = obj => {
    }
    return true
 }
+const convertSorter = sorter => {
+   const arr = []
+   Object.entries(sorter).forEach(([k, v]) => {
+      if (v === 'ASC') {
+         arr.push(k)
+      } else if (v === 'DESC') {
+         arr.push(`-${k}`)
+      }
+   })
+   return arr.join(',')
+}
 
 export const common = {
    createFormDataPayload,
@@ -43,5 +84,7 @@ export const common = {
    removeCurrentUser,
    formatPrice,
    getBase64,
-   checkEmptyObject
+   checkEmptyObject,
+   convertSorter,
+   createFormDataImg
 }

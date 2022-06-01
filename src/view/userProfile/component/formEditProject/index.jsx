@@ -212,7 +212,7 @@ function FormEditProject(props){
                         />
                     </Col>
                 </Row>
-                {/* <Row>
+                <Row>
                     <Col  span={24}>
                             <TextAreaField
                                 size="large"
@@ -221,9 +221,10 @@ function FormEditProject(props){
                                 placeholder="Nội dung"
                                 label="Nội dung"
                                 labelCol={{ span: 24 }}
+                                style={{ height:'200px' }}
                             />
                     </Col>
-                </Row> */}
+                </Row>
                 <Row>
                     <Col>
                             <FileUploadField

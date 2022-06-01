@@ -63,7 +63,7 @@ function SearchForm({ onSubmit }) {
                />
             </Col> */}
             <Button htmlType="submit" type="primary" size="middle" loading={isSubmitting}>
-               Search
+               Filter
             </Button>
          </Row>
       </form>

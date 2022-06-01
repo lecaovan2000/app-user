@@ -49,6 +49,19 @@ function ProjectTable(props){
                title: 'Thông tin',
                dataIndex: 'note',
                key: 'note',
+               ellipsis: true,
+               render: value => (
+                  <div
+                     style={{
+                        whiteSpace: 'nowrap',
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        maxWidth: '300px'
+                     }}
+                  >
+                     <span>{value}</span>
+                  </div>
+               )
            },
             {
                title:"Giá bán",

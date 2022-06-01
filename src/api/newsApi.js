@@ -26,7 +26,7 @@ const newsApi = {
 },
 updateNews:(payload)=>{
   const url = "news/update"
-    return axiosClient.post(url, common.createFormDataPayload(payload))
+    return axiosClient.post(url, common.createFormDataImg(payload))
 },
 restoreNews:(payload)=>{
   const url = "news/restore"

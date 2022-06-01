@@ -23,13 +23,12 @@ function Project(){
    const [loadingModal, setLoadingModal]=useState(false)
    const [isOpenModal,setIsOpenModal] = useState(false)
    const tokenUser = utilsToken.getAccessToken()
-   const [filters, setFilters] = useState({})
-   const [sorter, setSorter]=useState({})
    const history = useHistory()
    const [isOpenModalEdit,setIsOpenModalEdit]=useState(false)
    const [dataNewsModalEdit,setDataNewsModalEdit]=useState({})
-   
    const [pagination, setPagination] = useState(constants.DEFAULT_PAGINATION_TABLE)
+   const [filters, setFilters] = useState({})
+   const [sorter, setSorter]=useState({})
   
       const getNewProject = async(pagination=constants.DEFAULT_PAGINATION_TABLE)=>{
          setLoading(true)
@@ -39,8 +38,11 @@ function Project(){
                page: pagination.pageNo,
                page_size: pagination.pageSize,
                token:tokenUser,
+               ...filters
+               // title:common.convertSorter(sorter)
             }
             const res = await newsApi.getNewsByUser(payload)
+            console.log('đay',res)
             setDataSource(res.data)
             setPagination({
                pageNo: res.total_page,
@@ -68,16 +70,20 @@ function Project(){
 
      
       const handleChangeFilters = newFilters => {
+         
          setPagination({
             ...pagination,
             pageNo: 1
          })
+         // const filters = Object.fromEntries(Object.entries(newFilters).filter(([_, v]) => v != null))
          const filters = Object.fromEntries(Object.entries(newFilters).filter(([_, v]) => v != null))
+         
          const editedFilters = Object.fromEntries(Object.entries(filters).map(([k, v]) => [k, v[0]]))
          setFilters({
-            ...filters,
-            ...editedFilters
+            filters,
+            editedFilters
          })
+         console.log('click filter',editedFilters)
       }
       const handleChangeSorter = newSorter => {
          // console.log('click rott', newSorter)
@@ -153,7 +159,7 @@ function Project(){
          }
       }
       const handleSubmitEdit = async(data)=>{
-         // console.log('data formEdit:',data)
+         console.log('data formEdit:',data)
          try {
             const payload={
                title:data.title,
@@ -167,18 +173,25 @@ function Project(){
                   bathroom_no:data.bathroom_no,
                   token:tokenUser,
                   uid:data.uid,
-                  // imgs:data.imgs[0].originFileObj
-                  imgs:()=>{
-                     const newImg = data
-                     if ( newImg.imgs=== undefined) {
-                        return newImg.img_info
+                  imgs: (() => {
+                     if (data.imgs === undefined) {
+                        return data.img_info
                      }
-                     return newImg.imgs[0].originFileObj
-                  }
+                     return data.imgs[0].originFileObj
+                  })(),
+                  
+               //    imgs:(()=>{
+               //       const newImg =[]
+               //       data.imgs.forEach((item)=>{
+               //          console.log('item',item.originFileObj)
+               //          newImg.push(  item.originFileObj)
+               //       })
+               //       return newImg;
+               // })()
             }
-            // console.log('payload form',payload)
+            console.log('payload form',payload)
             const response = await newsApi.updateNews(payload)
-            // console.log("new edit",response)
+            console.log("new edit",response)
             enqueueSnackbar(response.message,{
                variant:'success'
             })

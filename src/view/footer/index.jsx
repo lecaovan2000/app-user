@@ -42,7 +42,7 @@ function Footer(){
                                  </div>
                                  <div >
                                     <div >
-                                       <a className='footer-right_support-p' href="mailto:sinhvieniuh@gmail.com">sinhvieniuh@gmail.com</a>
+                                       <a className='footer-right_support-p' href="mailto:acc.deviuh@gmail.com">acc.deviuh@gmail.com</a>
                                     </div>
                                  </div>
                               </div>
@@ -71,10 +71,10 @@ function Footer(){
                   <div className='footer-right_huongdan'>
                      <h4 >
                         <a role="button" className='footer-left_we-h4'  >
-                           Hướng dẫn <i class="fa fa-plus" aria-hidden="true"></i>
+                           Hướng dẫn <i className="fa fa-plus" aria-hidden="true"></i>
                         </a>
                      </h4>
-                     <div class="collapse time_work" id="collapseListMenu04">
+                     <div className="collapse time_work" id="collapseListMenu04">
                         <ul className="list-menu">
                            <li ><a className="list-menu_li" href="/">Trang chủ</a></li>
                            <li ><a className="list-menu_li" href="/collections">Rao tin</a></li>
