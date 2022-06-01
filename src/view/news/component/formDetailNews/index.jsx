@@ -11,7 +11,8 @@ import img3 from '../../../../images/toan-canh-bat-dong-san-nha-trang-1625440231
 import 'react-responsive-carousel/lib/styles/carousel.min.css' ;
 function NewsDetailForm(props){
    const {data, loading} = props
-   // console.log('datadetail',data)
+   const phone = '0355374753'
+   console.log('datadetail',data)
    const history=useHistory()
    // const routes =[
    //    {
@@ -72,9 +73,9 @@ function NewsDetailForm(props){
                <div  className='details__news-right-price'>
                     <span className='details__news-right-price-text'><span>Giá bán: </span>{ common.formatPrice(data.price)} VND</span>
                </div>
-               <a  href={`tel:${data.owner.phone}`} className='details__news-right-phone' >
+               <a  href={`tel:${data.owner ==="null" ? '...':data.owner.phone }`} className='details__news-right-phone' >
                    <img style={{width:32, height:32}} src={icon} alt='...' />
-                   <span itemProp='telephone'  className='details__news-right-phone-text'>{data.owner.phone ||'......'}<br/><p>{'(liên hệ ngay)'}</p></span>
+                   <span itemProp='telephone'  className='details__news-right-phone-text'>{data.owner ==="null" ? '....':data.owner.phone}<br/><p>{'(liên hệ ngay)'}</p></span>
                </a>
             </div>
          </div>
@@ -89,9 +90,9 @@ function NewsDetailForm(props){
             <div className='details__description-left-item'><span className='details__description-left-item-left'>{'Hướng nhà(dự án):'}</span><span className='details__description-left-item-right'>Đang update</span></div>
             </div>
             <div className='details__description-right'>
-               <div className='details__description-right-item'><span  >Tên người bán:</span><span className='details__description-right-item-right' >{data.username}</span></div>
-               <div className='details__description-right-item'><span>Số điện thoại:</span><span className='details__description-right-item-right'>{data.owner.phone}</span></div>
-               <div className='details__description-right-item'><span>Email:</span><span className='details__description-right-item-right'>{data.owner.email}</span></div>
+               <div className='details__description-right-item'><span  >Tên người bán:</span><span className='details__description-right-item-right' >{data.username || ''}</span></div>
+               <div className='details__description-right-item'><span>Số điện thoại:</span><span className='details__description-right-item-right'>{data.owner.phone || ''}</span></div>
+               <div className='details__description-right-item'><span>Email:</span><span className='details__description-right-item-right'>{data.owner.email || ''}</span></div>
             </div>
          </div>
          <TabTitleHeader text="Chi tiết dự án" />
